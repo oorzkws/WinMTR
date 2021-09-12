@@ -6,8 +6,12 @@
 .vs
 src/Release
 src/Release_x64
+src/Release_ARM
+src/Release_ARM64
 src/Debug
 src/Debug_x64
+src/DebugARM
+src/DebugARM64
 *.user
 
 # Compiled Dynamic libraries
