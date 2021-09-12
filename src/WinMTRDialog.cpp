@@ -115,9 +115,9 @@ BOOL WinMTRDialog::OnInitDialog()
 	}
 	
 #ifndef  _WIN64
-	char caption[] = {"WinMTR (Redux) v1.00 32bit"};
+	char caption[] = {"WinMTR (Redux) v1.01 32bit"};
 #else
-	char caption[] = {"WinMTR (Redux) v1.00 64bit"};
+	char caption[] = {"WinMTR (Redux) v1.01 64bit"};
 #endif
 	
 	SetTimer(1, WINMTR_DIALOG_TIMER, NULL);
@@ -136,8 +136,8 @@ BOOL WinMTRDialog::OnInitDialog()
 	statusBar.SetPaneInfo(0, statusBar.GetItemID(0),SBPS_STRETCH, NULL);
 	
 	// create Appnor button
-	if(m_buttonAppnor.Create(_T("www.appnor.com"), WS_CHILD|WS_VISIBLE|WS_TABSTOP, CRect(0,0,0,0), &statusBar, 1234)) {
-		m_buttonAppnor.SetURL("http://appnor.com/?utm_source=winmtr&utm_medium=desktop&utm_campaign=software");
+	if(m_buttonAppnor.Create(_T("www.sctools.cyou"), WS_CHILD|WS_VISIBLE|WS_TABSTOP, CRect(0,0,0,0), &statusBar, 1234)) {
+		m_buttonAppnor.SetURL("https://sctools.cyou/redirect.php?soft=winmtr");
 		if(statusBar.AddPane(1234,1)) {
 			statusBar.SetPaneWidth(statusBar.CommandToIndex(1234),100);
 			statusBar.AddPaneControl(m_buttonAppnor,1234,true);
