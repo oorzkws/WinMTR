@@ -36,7 +36,7 @@ protected:
 	
 	afx_msg void OnLicense();
 	
-	DECLARE_MESSAGE_MAP()
+	DECLARE_MESSAGE_MAP();
 	
 private:
 	double	interval;
