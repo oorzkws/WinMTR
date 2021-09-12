@@ -3,7 +3,6 @@
 
 #include "WinMTRGlobal.h"
 #include "WinMTRHelp.h"
-#include "afxdialogex.h"
 
 
 // WinMTRHelp dialog

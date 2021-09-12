@@ -26,7 +26,7 @@ protected:
 
 	virtual BOOL OnInitDialog();
 	
-	DECLARE_MESSAGE_MAP()
+	DECLARE_MESSAGE_MAP();
 };
 
 #endif // ifndef WINMTRLICENSE_H_
