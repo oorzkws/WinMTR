@@ -5,8 +5,8 @@
 #include "WinMTRGlobal.h"
 #include "WinMTRNet.h"
 #include "WinMTRDialog.h"
+#include <VersionHelpers.h>
 #include <iostream>
-#include <sstream>
 
 #ifdef _DEBUG
 #	define TRACE_MSG(msg)										\
@@ -58,7 +58,7 @@ WinMTRNet::WinMTRNet(WinMTRDialog* wp)
 	}
 	OSVERSIONINFOEX osvi= {0};
 	osvi.dwOSVersionInfoSize=sizeof(OSVERSIONINFOEX);
-	if(!GetVersionEx((OSVERSIONINFO*) &osvi)) {
+	if(!IsWindowsXPOrGreater()) {
 		AfxMessageBox("Failed to get Windows version!");
 		return;
 	}

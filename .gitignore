@@ -4,9 +4,11 @@
 *.o
 .idea
 .vs
-Release
-Debug
-obj
+src/Release
+src/Release_x64
+src/Debug
+src/Debug_x64
+*.user
 
 # Compiled Dynamic libraries
 *.so
