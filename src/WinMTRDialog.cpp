@@ -1,7 +1,5 @@
 //*****************************************************************************
 // FILE:            WinMTRDialog.cpp
-//
-//
 //*****************************************************************************
 
 #include "WinMTRGlobal.h"
@@ -30,8 +28,6 @@ void PingThread(void* p);
 
 //*****************************************************************************
 // BEGIN_MESSAGE_MAP
-//
-//
 //*****************************************************************************
 BEGIN_MESSAGE_MAP(WinMTRDialog, CDialog)
 	ON_WM_PAINT()
@@ -56,8 +52,6 @@ END_MESSAGE_MAP()
 
 //*****************************************************************************
 // WinMTRDialog::WinMTRDialog
-//
-//
 //*****************************************************************************
 WinMTRDialog::WinMTRDialog(CWnd* pParent)
 	: CDialog(WinMTRDialog::IDD, pParent),
@@ -92,8 +86,6 @@ WinMTRDialog::~WinMTRDialog()
 
 //*****************************************************************************
 // WinMTRDialog::DoDataExchange
-//
-//
 //*****************************************************************************
 void WinMTRDialog::DoDataExchange(CDataExchange* pDX)
 {
@@ -113,8 +105,6 @@ void WinMTRDialog::DoDataExchange(CDataExchange* pDX)
 
 //*****************************************************************************
 // WinMTRDialog::OnInitDialog
-//
-//
 //*****************************************************************************
 BOOL WinMTRDialog::OnInitDialog()
 {
@@ -205,8 +195,6 @@ BOOL WinMTRDialog::OnInitDialog()
 
 //*****************************************************************************
 // WinMTRDialog::InitRegistry
-//
-//
 //*****************************************************************************
 BOOL WinMTRDialog::InitRegistry()
 {
@@ -290,8 +278,6 @@ BOOL WinMTRDialog::InitRegistry()
 
 //*****************************************************************************
 // WinMTRDialog::OnSizing
-//
-//
 //*****************************************************************************
 void WinMTRDialog::OnSizing(UINT fwSide, LPRECT pRect)
 {
@@ -309,8 +295,6 @@ void WinMTRDialog::OnSizing(UINT fwSide, LPRECT pRect)
 
 //*****************************************************************************
 // WinMTRDialog::OnSize
-//
-//
 //*****************************************************************************
 /// @todo (White-Tiger#1#): simplify it... use initial positions from "right" to calculate new position (no fix values here)
 void WinMTRDialog::OnSize(UINT nType, int cx, int cy)
@@ -355,8 +339,6 @@ void WinMTRDialog::OnSize(UINT nType, int cx, int cy)
 
 //*****************************************************************************
 // WinMTRDialog::OnPaint
-//
-//
 //*****************************************************************************
 void WinMTRDialog::OnPaint()
 {
@@ -381,8 +363,6 @@ void WinMTRDialog::OnPaint()
 
 //*****************************************************************************
 // WinMTRDialog::OnQueryDragIcon
-//
-//
 //*****************************************************************************
 HCURSOR WinMTRDialog::OnQueryDragIcon()
 {
@@ -392,7 +372,6 @@ HCURSOR WinMTRDialog::OnQueryDragIcon()
 
 //*****************************************************************************
 // WinMTRDialog::OnDblclkList
-//
 //*****************************************************************************
 void WinMTRDialog::OnDblclkList(NMHDR* /*pNMHDR*/, LRESULT* pResult)
 {
@@ -435,7 +414,6 @@ void WinMTRDialog::OnDblclkList(NMHDR* /*pNMHDR*/, LRESULT* pResult)
 
 //*****************************************************************************
 // WinMTRDialog::SetHostName
-//
 //*****************************************************************************
 void WinMTRDialog::SetHostName(const char* host)
 {
@@ -455,7 +433,6 @@ void WinMTRDialog::SetPingSize(WORD ps)
 
 //*****************************************************************************
 // WinMTRDialog::SetMaxLRU
-//
 //*****************************************************************************
 void WinMTRDialog::SetMaxLRU(int mlru)
 {
@@ -465,7 +442,6 @@ void WinMTRDialog::SetMaxLRU(int mlru)
 
 //*****************************************************************************
 // WinMTRDialog::SetInterval
-//
 //*****************************************************************************
 void WinMTRDialog::SetInterval(float i)
 {
@@ -474,7 +450,6 @@ void WinMTRDialog::SetInterval(float i)
 
 //*****************************************************************************
 // WinMTRDialog::SetUseDNS
-//
 //*****************************************************************************
 void WinMTRDialog::SetUseDNS(BOOL udns)
 {
@@ -486,8 +461,6 @@ void WinMTRDialog::SetUseDNS(BOOL udns)
 
 //*****************************************************************************
 // WinMTRDialog::OnRestart
-//
-//
 //*****************************************************************************
 void WinMTRDialog::OnRestart()
 {
@@ -584,8 +557,6 @@ void WinMTRDialog::OnOptions()
 
 //*****************************************************************************
 // WinMTRDialog::OnCTTC
-//
-//
 //*****************************************************************************
 void WinMTRDialog::OnCTTC()
 {
@@ -639,8 +610,6 @@ void WinMTRDialog::OnCTTC()
 
 //*****************************************************************************
 // WinMTRDialog::OnCHTC
-//
-//
 //*****************************************************************************
 void WinMTRDialog::OnCHTC()
 {
@@ -692,8 +661,6 @@ void WinMTRDialog::OnCHTC()
 
 //*****************************************************************************
 // WinMTRDialog::OnEXPT
-//
-//
 //*****************************************************************************
 void WinMTRDialog::OnEXPT()
 {
@@ -749,8 +716,6 @@ void WinMTRDialog::OnEXPT()
 
 //*****************************************************************************
 // WinMTRDialog::OnEXPH
-//
-//
 //*****************************************************************************
 void WinMTRDialog::OnEXPH()
 {
@@ -806,8 +771,6 @@ void WinMTRDialog::OnEXPH()
 
 //*****************************************************************************
 // WinMTRDialog::WinMTRDialog
-//
-//
 //*****************************************************************************
 void WinMTRDialog::OnCancel()
 {
@@ -816,8 +779,6 @@ void WinMTRDialog::OnCancel()
 
 //*****************************************************************************
 // WinMTRDialog::DisplayRedraw
-//
-//
 //*****************************************************************************
 int WinMTRDialog::DisplayRedraw()
 {
@@ -868,8 +829,6 @@ int WinMTRDialog::DisplayRedraw()
 
 //*****************************************************************************
 // WinMTRDialog::InitMTRNet
-//
-//
 //*****************************************************************************
 int WinMTRDialog::InitMTRNet()
 {
@@ -906,8 +865,6 @@ int WinMTRDialog::InitMTRNet()
 
 //*****************************************************************************
 // PingThread
-//
-//
 //*****************************************************************************
 void PingThread(void* p)
 {

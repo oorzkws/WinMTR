@@ -1,7 +1,5 @@
 //*****************************************************************************
 // FILE:            WinMTRProperties.cpp
-//
-//
 //*****************************************************************************
 
 #include "WinMTRGlobal.h"
@@ -16,8 +14,6 @@ static char THIS_FILE[] = __FILE__;
 
 //*****************************************************************************
 // BEGIN_MESSAGE_MAP
-//
-// 
 //*****************************************************************************
 BEGIN_MESSAGE_MAP(WinMTRProperties, CDialog)
 END_MESSAGE_MAP()
@@ -25,8 +21,6 @@ END_MESSAGE_MAP()
 
 //*****************************************************************************
 // WinMTRProperties::WinMTRProperties
-//
-// 
 //*****************************************************************************
 WinMTRProperties::WinMTRProperties(CWnd* pParent) : CDialog(WinMTRProperties::IDD, pParent)
 {
@@ -35,8 +29,6 @@ WinMTRProperties::WinMTRProperties(CWnd* pParent) : CDialog(WinMTRProperties::ID
 
 //*****************************************************************************
 // WinMTRroperties::DoDataExchange
-//
-// 
 //*****************************************************************************
 void WinMTRProperties::DoDataExchange(CDataExchange* pDX)
 {
@@ -58,8 +50,6 @@ void WinMTRProperties::DoDataExchange(CDataExchange* pDX)
 
 //*****************************************************************************
 // WinMTRProperties::OnInitDialog
-//
-// 
 //*****************************************************************************
 BOOL WinMTRProperties::OnInitDialog() 
 {

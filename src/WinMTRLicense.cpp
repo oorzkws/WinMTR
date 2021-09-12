@@ -1,7 +1,5 @@
 //*****************************************************************************
 // FILE:            WinMTRLicense.cpp
-//
-//
 //*****************************************************************************
 
 #include "WinMTRGlobal.h"
@@ -360,8 +358,6 @@ Public License instead of this License."
 
 //*****************************************************************************
 // BEGIN_MESSAGE_MAP
-//
-//
 //*****************************************************************************
 BEGIN_MESSAGE_MAP(WinMTRLicense, CDialog)
 END_MESSAGE_MAP()
@@ -369,9 +365,7 @@ END_MESSAGE_MAP()
 
 //*****************************************************************************
 // WinMTRLicense::WinMTRLicense
-//
-//
-//*****************************************************************************
+// *****************************************************************************
 WinMTRLicense::WinMTRLicense(CWnd* pParent) : CDialog(WinMTRLicense::IDD, pParent)
 {
 }
@@ -379,8 +373,6 @@ WinMTRLicense::WinMTRLicense(CWnd* pParent) : CDialog(WinMTRLicense::IDD, pParen
 
 //*****************************************************************************
 // WinMTRLicense::DoDataExchange
-//
-//
 //*****************************************************************************
 void WinMTRLicense::DoDataExchange(CDataExchange* pDX)
 {
@@ -390,8 +382,6 @@ void WinMTRLicense::DoDataExchange(CDataExchange* pDX)
 
 //*****************************************************************************
 // WinMTRLicense::OnInitDialog
-//
-//
 //*****************************************************************************
 BOOL WinMTRLicense::OnInitDialog()
 {

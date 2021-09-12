@@ -32,10 +32,7 @@ BEGIN_MESSAGE_MAP(WinMTRStatusBar, CStatusBar)
 	//}}AFX_MSG_MAP
 END_MESSAGE_MAP()
 
-
-/////////////////////////////////////////////////////////////////////////////
 // WinMTRStatusBar message handlers
-//////////////////////////////////////////////////////////////////////////
 
 int WinMTRStatusBar::OnCreate(LPCREATESTRUCT lpCreateStruct)
 {
@@ -45,8 +42,6 @@ int WinMTRStatusBar::OnCreate(LPCREATESTRUCT lpCreateStruct)
 	return 0;
 }
 
-//////////////////////////////////////////////////////////////////////////
-
 LRESULT WinMTRStatusBar::WindowProc(UINT message, WPARAM wParam, LPARAM lParam)
 {
 	LRESULT lResult =CStatusBar::WindowProc(message, wParam, lParam);
@@ -55,8 +50,6 @@ LRESULT WinMTRStatusBar::WindowProc(UINT message, WPARAM wParam, LPARAM lParam)
 	}
 	return lResult;
 }
-
-//////////////////////////////////////////////////////////////////////////
 
 void WinMTRStatusBar::RepositionControls()
 {
@@ -125,8 +118,6 @@ void WinMTRStatusBar::RepositionControls()
 	VERIFY(::EndDeferWindowPos(_hDWP));
 };
 
-//////////////////////////////////////////////////////////////////////////
-
 BOOL WinMTRStatusBar::AddPane(
 	UINT nID,	// ID of the  pane
 	int nIndex	// index of the pane
@@ -189,8 +180,6 @@ BOOL WinMTRStatusBar::AddPane(
 	
 	return TRUE;
 }
-
-//////////////////////////////////////////////////////////////////////////
 
 BOOL WinMTRStatusBar::RemovePane(
 	UINT nID	// ID of the pane
@@ -259,8 +248,6 @@ BOOL WinMTRStatusBar::RemovePane(
 	return TRUE;
 }
 
-//////////////////////////////////////////////////////////////////////////
-
 BOOL WinMTRStatusBar::AddPaneControl(HWND hWnd, UINT nID, BOOL bAutoDestroy)
 {
 	if(CommandToIndex(nID) == -1) {
@@ -278,8 +265,6 @@ BOOL WinMTRStatusBar::AddPaneControl(HWND hWnd, UINT nID, BOOL bAutoDestroy)
 	return TRUE;
 }
 
-//////////////////////////////////////////////////////////////////////////
-
 BOOL WinMTRStatusBar::PaneInfoGet(int nIndex, _STATUSBAR_PANE_* pPane)
 {
 	if(nIndex < m_nCount  && nIndex >= 0) {
@@ -291,8 +276,6 @@ BOOL WinMTRStatusBar::PaneInfoGet(int nIndex, _STATUSBAR_PANE_* pPane)
 	}
 	return FALSE;
 }
-
-//////////////////////////////////////////////////////////////////////////
 
 BOOL WinMTRStatusBar::PaneInfoSet(int nIndex, _STATUSBAR_PANE_* pPane)
 {

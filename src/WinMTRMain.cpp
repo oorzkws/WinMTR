@@ -38,8 +38,6 @@ WinMTRMain WinMTR;
 
 //*****************************************************************************
 // BEGIN_MESSAGE_MAP
-//
-//
 //*****************************************************************************
 BEGIN_MESSAGE_MAP(WinMTRMain, CWinApp)
 	ON_COMMAND(ID_HELP, CWinApp::OnHelp)
@@ -47,8 +45,6 @@ END_MESSAGE_MAP()
 
 //*****************************************************************************
 // WinMTRMain::WinMTRMain
-//
-//
 //*****************************************************************************
 WinMTRMain::WinMTRMain()
 {
@@ -56,8 +52,6 @@ WinMTRMain::WinMTRMain()
 
 //*****************************************************************************
 // WinMTRMain::InitInstance
-//
-//
 //*****************************************************************************
 BOOL WinMTRMain::InitInstance()
 {
@@ -88,8 +82,6 @@ BOOL WinMTRMain::InitInstance()
 
 //*****************************************************************************
 // WinMTRMain::ParseCommandLineParams
-//
-//
 //*****************************************************************************
 void WinMTRMain::ParseCommandLineParams(LPTSTR cmd, WinMTRDialog* wmtrdlg)
 {
@@ -134,8 +126,6 @@ void WinMTRMain::ParseCommandLineParams(LPTSTR cmd, WinMTRDialog* wmtrdlg)
 
 //*****************************************************************************
 // WinMTRMain::GetParamValue
-//
-//
 //*****************************************************************************
 int WinMTRMain::GetParamValue(LPTSTR cmd, char* param, char sparam, char* value)
 {
@@ -171,8 +161,6 @@ int WinMTRMain::GetParamValue(LPTSTR cmd, char* param, char sparam, char* value)
 
 //*****************************************************************************
 // WinMTRMain::GetHostNameParamValue
-//
-//
 //*****************************************************************************
 int WinMTRMain::GetHostNameParamValue(LPTSTR cmd, std::string& host_name)
 {
