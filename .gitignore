@@ -17,3 +17,5 @@ src/Debug*
 *.lai
 *.la
 *.a
+
+.github
