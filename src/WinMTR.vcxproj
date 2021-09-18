@@ -491,7 +491,6 @@
     <ResourceCompile Include="WinMTR.rc" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="WinMTRLicense.cpp" />
     <ClCompile Include="WinMTRStatusBar.cpp" />
     <ClCompile Include="WinMTRDialog.cpp" />
     <ClCompile Include="WinMTRHelp.cpp" />
@@ -501,7 +500,6 @@
     <ClCompile Include="WinMTRProperties.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="WinMTRLicense.h" />
     <ClInclude Include="WinMTRStatusBar.h" />
     <ClInclude Include="Resource.h" />
     <ClInclude Include="stdafx.h" />

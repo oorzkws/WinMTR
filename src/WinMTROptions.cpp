@@ -4,7 +4,6 @@
 
 #include "WinMTRGlobal.h"
 #include "WinMTROptions.h"
-#include "WinMTRLicense.h"
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
@@ -85,6 +84,5 @@ void WinMTROptions::OnOK()
 //*****************************************************************************
 void WinMTROptions::OnLicense() 
 {
-	WinMTRLicense mtrlicense;
-	mtrlicense.DoModal();
+   ShellExecute (NULL, "open", "https://www.gnu.org/licenses/gpl-2.0.html", 0, 0, SW_SHOWNORMAL);
 }

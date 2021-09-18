@@ -9,7 +9,6 @@
 #define IDS_STRING_CLEAR_HISTORY        106
 #define IDR_MAINFRAME                   128
 #define IDD_DIALOG_OPTIONS              129
-#define IDD_DIALOG_LICENSE              130
 #define IDD_DIALOG_PROPERTIES           131
 #define IDD_DIALOG_HELP                 132
 #define IDC_EDIT_HOST                   1000
