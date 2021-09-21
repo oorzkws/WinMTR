@@ -151,7 +151,7 @@ FONT 8, "MS Shell Dlg", 400, 0, 0x1
 BEGIN
     DEFPUSHBUTTON   "OK",IDOK,144,101,50,14
     LTEXT           "www.cstools.cyou",IDC_STATIC,187,9,60,11
-    LTEXT           "WinMTR (Redux) v1.01 is offered under GPLv2",IDC_STATIC,7,9,176,10
+    LTEXT           "WinMTR (Redux) v1.1 is licensed under GPLv2",IDC_STATIC,7,9,176,10
     LTEXT           "Usage: WinMTR [options] target_host_name",IDC_STATIC,7,29,144,8
     LTEXT           "Options:",IDC_STATIC,7,39,28,8
     LTEXT           "     --interval, -i VALUE. Set ping interval.",IDC_STATIC,26,47,131,8
@@ -168,8 +168,8 @@ END
 //
 
 VS_VERSION_INFO VERSIONINFO
- FILEVERSION 1,0,0,1
- PRODUCTVERSION 1,0,0,0
+ FILEVERSION 1,1,0,0
+ PRODUCTVERSION 1,1,0,0
  FILEFLAGSMASK 0x3fL
 #ifdef _DEBUG
  FILEFLAGS 0x1L
@@ -184,13 +184,13 @@ BEGIN
     BEGIN
         BLOCK "040904b0"
         BEGIN
-            VALUE "FileDescription", "WinMTR Redux (original by Appnor MSP - www.winmtr.net)"
-            VALUE "FileVersion", "1.0.0.1"
+            VALUE "FileDescription", "WinMTR is a GUI MTR implementation for Windows"
+            VALUE "FileVersion", "1.1.0.0"
             VALUE "InternalName", "WinMTR"
             VALUE "LegalCopyright", "WinMTR 1.01 (c) 2021"
             VALUE "OriginalFilename", "WinMTR.exe"
-            VALUE "ProductName", "WinMTR Application"
-            VALUE "ProductVersion", "1.0.0.0"
+            VALUE "ProductName", "WinMTR"
+            VALUE "ProductVersion", "1.1.0.0"
         END
     END
     BLOCK "VarFileInfo"
