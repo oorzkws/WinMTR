@@ -9,6 +9,7 @@ src/Debug*
 src-cmd/bin
 src-cmd/obj
 *.user
+*.suo
 *.aps
 *.tmp
 # Compiled Dynamic libraries
