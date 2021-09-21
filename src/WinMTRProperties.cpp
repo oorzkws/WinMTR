@@ -11,7 +11,6 @@
 static char THIS_FILE[] = __FILE__;
 #endif
 
-
 //*****************************************************************************
 // BEGIN_MESSAGE_MAP
 //*****************************************************************************
@@ -25,7 +24,6 @@ END_MESSAGE_MAP()
 WinMTRProperties::WinMTRProperties(CWnd* pParent) : CDialog(WinMTRProperties::IDD, pParent)
 {
 }
-
 
 //*****************************************************************************
 // WinMTRroperties::DoDataExchange

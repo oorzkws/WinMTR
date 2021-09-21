@@ -1,13 +1,9 @@
 //*****************************************************************************
 // FILE:            WinMTRProperties.h
-// DESCRIPTION:
-// NOTES:
 //*****************************************************************************
 
 #ifndef WINMTRPROPERTIES_H_
 #define WINMTRPROPERTIES_H_
-
-
 
 //*****************************************************************************
 // CLASS:  WinMTRLicense
@@ -18,7 +14,6 @@ class WinMTRProperties : public CDialog
 public:
 	WinMTRProperties(CWnd* pParent = NULL);
 
-	
 	enum { IDD = IDD_DIALOG_PROPERTIES };
 
 	char	host[255];

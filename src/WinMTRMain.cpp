@@ -1,24 +1,5 @@
 //*****************************************************************************
 // FILE:            WinMTRMain.cpp
-//
-//
-// HISTORY:
-//
-//
-//    -- versions 0.8
-//
-// - 01.18.2002 - Store LRU hosts in registry (v0.8)
-// - 05.08.2001 - Replace edit box with combo box which hold last entered hostnames.
-//				  Fixed a memory leak which caused program to crash after a long
-//				  time running. (v0.7)
-// - 11.27.2000 - Added resizing support and flat buttons. (v0.6)
-// - 11.26.2000 - Added copy data to clipboard and posibility to save data to file as text or HTML.(v0.5)
-// - 08.03.2000 - added double-click on hostname for detailed information (v0.4)
-// - 08.02.2000 - fix icmp error codes handling. (v0.3)
-// - 08.01.2000 - support for full command-line parameter specification (v0.2)
-// - 07.30.2000 - support for command-line host specification
-//					by Silviu Simen (ssimen@ubisoft.ro) (v0.1b)
-// - 07.28.2000 - first release (v0.1)
 //*****************************************************************************
 
 #include "WinMTRGlobal.h"

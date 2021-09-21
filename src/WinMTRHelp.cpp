@@ -1,5 +1,6 @@
-// WinMTRHelp.cpp : implementation file
-//
+//*****************************************************************************
+// FILE:            WinMTRHelp.cpp
+//*****************************************************************************
 
 #include "WinMTRGlobal.h"
 #include "WinMTRHelp.h"
