@@ -6,6 +6,8 @@
 .vs
 src/Release*
 src/Debug*
+src-cmd/bin
+src-cmd/obj
 *.user
 *.aps
 *.tmp
