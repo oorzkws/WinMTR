@@ -151,7 +151,7 @@ FONT 8, "MS Shell Dlg", 400, 0, 0x1
 BEGIN
     DEFPUSHBUTTON   "OK",IDOK,144,101,50,14
     LTEXT           "www.cstools.cyou",IDC_STATIC,187,9,60,11
-    LTEXT           "WinMTR (Redux) v1.1 is licensed under GPLv2",IDC_STATIC,7,9,176,10
+    LTEXT           "WinMTR (Live) v1.02 is licensed under GPLv2",IDC_STATIC,7,9,176,10
     LTEXT           "Usage: WinMTR [options] target_host_name",IDC_STATIC,7,29,144,8
     LTEXT           "Options:",IDC_STATIC,7,39,28,8
     LTEXT           "     --interval, -i VALUE. Set ping interval.",IDC_STATIC,26,47,131,8
