@@ -133,9 +133,13 @@
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">
     <LinkIncremental>false</LinkIncremental>
+    <OutDir>.\bin\Release_ARM\</OutDir>
+    <IntDir>.\obj\Release_ARM\</IntDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|ARM64'">
     <LinkIncremental>false</LinkIncremental>
+    <OutDir>.\bin\Release_ARM64\</OutDir>
+    <IntDir>.\bin\Release_ARM64\</IntDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <OutDir>.\bin\Release_x64\</OutDir>
@@ -149,6 +153,8 @@
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">
     <LinkIncremental>true</LinkIncremental>
+    <OutDir>.\bin\Debug_ARM\</OutDir>
+    <IntDir>.\obj\Debug_ARM\</IntDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|ARM64'">
     <LinkIncremental>true</LinkIncremental>
@@ -169,10 +175,10 @@
       <SuppressStartupBanner>true</SuppressStartupBanner>
       <WarningLevel>Level3</WarningLevel>
       <PreprocessorDefinitions>WIN32;NDEBUG;_WINDOWS;_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AssemblerListingLocation>.\obj\Release\</AssemblerListingLocation>
-      <PrecompiledHeaderOutputFile>.\obj\Release\WinMTRCmd.pch</PrecompiledHeaderOutputFile>
-      <ObjectFileName>.\obj\Release\</ObjectFileName>
-      <ProgramDataBaseFileName>.\obj\Release\</ProgramDataBaseFileName>
+      <AssemblerListingLocation>.\obj\Release_x32\</AssemblerListingLocation>
+      <PrecompiledHeaderOutputFile>.\obj\Release_x32\WinMTRCmd.pch</PrecompiledHeaderOutputFile>
+      <ObjectFileName>.\obj\Release_x32\</ObjectFileName>
+      <ProgramDataBaseFileName>.\obj\Release_x32\</ProgramDataBaseFileName>
       <MinimalRebuild />
     </ClCompile>
     <Midl>
@@ -381,10 +387,10 @@
       </MinimalRebuild>
       <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
       <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AssemblerListingLocation>.\bin\Debug\</AssemblerListingLocation>
-      <PrecompiledHeaderOutputFile>.\bin\Debug\WinMTRCmd.pch</PrecompiledHeaderOutputFile>
-      <ObjectFileName>.\obj\Debug\</ObjectFileName>
-      <ProgramDataBaseFileName>.\obj\Debug\</ProgramDataBaseFileName>
+      <AssemblerListingLocation>.\bin\Debug_ARM\</AssemblerListingLocation>
+      <PrecompiledHeaderOutputFile>.\bin\Debug_ARM\WinMTRCmd.pch</PrecompiledHeaderOutputFile>
+      <ObjectFileName>.\obj\Debug_ARM\</ObjectFileName>
+      <ProgramDataBaseFileName>.\obj\Debug_ARM\</ProgramDataBaseFileName>
       <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
     </ClCompile>
     <Midl>
@@ -425,10 +431,10 @@
       </MinimalRebuild>
       <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
       <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AssemblerListingLocation>.\bin\Debug\</AssemblerListingLocation>
-      <PrecompiledHeaderOutputFile>.\bin\Debug\WinMTRCmd.pch</PrecompiledHeaderOutputFile>
+      <AssemblerListingLocation>.\bin\Debug_ARM64\</AssemblerListingLocation>
+      <PrecompiledHeaderOutputFile>.\bin\Debug_ARM64\WinMTRCmd.pch</PrecompiledHeaderOutputFile>
       <ObjectFileName>.\obj\Debug\</ObjectFileName>
-      <ProgramDataBaseFileName>.\obj\Debug\</ProgramDataBaseFileName>
+      <ProgramDataBaseFileName>.\obj\Debug_ARM64\</ProgramDataBaseFileName>
       <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
     </ClCompile>
     <Midl>
