@@ -300,10 +300,10 @@
       <SuppressStartupBanner>true</SuppressStartupBanner>
       <WarningLevel>Level3</WarningLevel>
       <PreprocessorDefinitions>WIN32;_WIN64;_AMD64;NDEBUG;_WINDOWS;_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AssemblerListingLocation>.\obj\Release\</AssemblerListingLocation>
-      <PrecompiledHeaderOutputFile>.\obj\Release\WinMTRCmd.pch</PrecompiledHeaderOutputFile>
-      <ObjectFileName>.\obj\Release\</ObjectFileName>
-      <ProgramDataBaseFileName>.\obj\Release\</ProgramDataBaseFileName>
+      <AssemblerListingLocation>.\obj\Release_x64\</AssemblerListingLocation>
+      <PrecompiledHeaderOutputFile>.\obj\Release_x64\WinMTRCmd.pch</PrecompiledHeaderOutputFile>
+      <ObjectFileName>.\obj\Release_x64\</ObjectFileName>
+      <ProgramDataBaseFileName>.\obj\Release_x64\</ProgramDataBaseFileName>
     </ClCompile>
     <Midl>
       <SuppressStartupBanner>true</SuppressStartupBanner>
