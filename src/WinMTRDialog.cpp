@@ -47,6 +47,7 @@ BEGIN_MESSAGE_MAP(WinMTRDialog, CDialog)
 	ON_WM_TIMER()
 	ON_WM_CLOSE()
 	ON_BN_CLICKED(IDCANCEL, &WinMTRDialog::OnBnClickedCancel)
+	ON_COMMAND(ID_FILE_EXIT, &WinMTRDialog::OnFileExit)
 END_MESSAGE_MAP()
 
 
@@ -91,7 +92,6 @@ void WinMTRDialog::DoDataExchange(CDataExchange* pDX)
 {
 	CDialog::DoDataExchange(pDX);
 	DDX_Control(pDX, ID_OPTIONS, m_buttonOptions);
-	DDX_Control(pDX, IDCANCEL, m_buttonExit);
 	DDX_Control(pDX, ID_RESTART, m_buttonStart);
 	DDX_Control(pDX, IDC_COMBO_HOST, m_comboHost);
 	DDX_Control(pDX, IDC_CHECK_IPV6, m_checkIPv6);
@@ -313,10 +313,7 @@ void WinMTRDialog::OnSize(UINT nType, int cx, int cy)
 	
 	m_buttonOptions.GetWindowRect(&lb);
 	ScreenToClient(&lb);
-	m_buttonOptions.SetWindowPos(NULL, rct.Width() - lb.Width()-52-16, lb.TopLeft().y, lb.Width(), lb.Height() , SWP_NOSIZE | SWP_NOZORDER);
-	m_buttonExit.GetWindowRect(&lb);
-	ScreenToClient(&lb);
-	m_buttonExit.SetWindowPos(NULL, rct.Width() - lb.Width()-16, lb.TopLeft().y, lb.Width(), lb.Height() , SWP_NOSIZE | SWP_NOZORDER);
+	m_buttonOptions.SetWindowPos(NULL, rct.Width() - lb.Width() - 52 - 16, lb.TopLeft().y, lb.Width(), lb.Height(), SWP_NOSIZE | SWP_NOZORDER);
 	
 	m_buttonExpH.GetWindowRect(&lb);
 	ScreenToClient(&lb);
@@ -1090,6 +1087,12 @@ void WinMTRDialog::OnClose()
 
 
 void WinMTRDialog::OnBnClickedCancel()
+{
+	Transit(EXIT);
+}
+
+
+void WinMTRDialog::OnFileExit()
 {
 	Transit(EXIT);
 }

@@ -47,7 +47,6 @@ public:
 	};
 	
 	CButton	m_buttonOptions;
-	CButton	m_buttonExit;
 	CButton	m_buttonStart;
 	CComboBox m_comboHost;
 	CButton m_checkIPv6;
@@ -122,6 +121,7 @@ public:
 	afx_msg void OnTimer(UINT_PTR nIDEvent);
 	afx_msg void OnClose();
 	afx_msg void OnBnClickedCancel();
+	afx_msg void OnFileExit();
 };
 
 #endif // ifndef WINMTRDIALOG_H_
