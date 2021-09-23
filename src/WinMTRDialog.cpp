@@ -91,7 +91,6 @@ WinMTRDialog::~WinMTRDialog()
 void WinMTRDialog::DoDataExchange(CDataExchange* pDX)
 {
 	CDialog::DoDataExchange(pDX);
-	DDX_Control(pDX, ID_OPTIONS, m_buttonOptions);
 	DDX_Control(pDX, ID_RESTART, m_buttonStart);
 	DDX_Control(pDX, IDC_COMBO_HOST, m_comboHost);
 	DDX_Control(pDX, IDC_CHECK_IPV6, m_checkIPv6);
@@ -310,11 +309,7 @@ void WinMTRDialog::OnSize(UINT nType, int cx, int cy)
 	m_staticJ.GetWindowRect(&lb);
 	ScreenToClient(&lb);
 	m_staticJ.SetWindowPos(NULL, lb.TopLeft().x, lb.TopLeft().y, rct.Width() - 16, lb.Height(), SWP_NOMOVE | SWP_NOZORDER);
-	
-	m_buttonOptions.GetWindowRect(&lb);
-	ScreenToClient(&lb);
-	m_buttonOptions.SetWindowPos(NULL, rct.Width() - lb.Width() - 52 - 16, lb.TopLeft().y, lb.Width(), lb.Height(), SWP_NOSIZE | SWP_NOZORDER);
-	
+
 	m_buttonExpH.GetWindowRect(&lb);
 	ScreenToClient(&lb);
 	m_buttonExpH.SetWindowPos(NULL, rct.Width() - lb.Width()-16, lb.TopLeft().y, lb.Width(), lb.Height() , SWP_NOSIZE | SWP_NOZORDER);
@@ -1015,7 +1010,6 @@ void WinMTRDialog::Transit(STATES new_state)
 		m_buttonStart.SetWindowText("Stop");
 		m_comboHost.EnableWindow(FALSE);
 		m_checkIPv6.EnableWindow(FALSE);
-		m_buttonOptions.EnableWindow(FALSE);
 		statusBar.SetPaneText(0, "Double click on host name for more information.");
 		_beginthread(PingThread, 0 , this);
 		m_buttonStart.EnableWindow(TRUE);
@@ -1023,7 +1017,6 @@ void WinMTRDialog::Transit(STATES new_state)
 	case IDLE_TO_EXIT:
 		m_buttonStart.EnableWindow(FALSE);
 		m_comboHost.EnableWindow(FALSE);
-		m_buttonOptions.EnableWindow(FALSE);
 		break;
 	case STOPPING_TO_IDLE:
 		DisplayRedraw();
@@ -1032,7 +1025,6 @@ void WinMTRDialog::Transit(STATES new_state)
 		m_buttonStart.SetWindowText("Start");
 		m_comboHost.EnableWindow(TRUE);
 		m_checkIPv6.EnableWindow(TRUE);
-		m_buttonOptions.EnableWindow(TRUE);
 		m_comboHost.SetFocus();
 		break;
 	case STOPPING_TO_STOPPING:

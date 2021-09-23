@@ -46,7 +46,6 @@ public:
 		STOPPING_TO_EXIT
 	};
 	
-	CButton	m_buttonOptions;
 	CButton	m_buttonStart;
 	CComboBox m_comboHost;
 	CButton m_checkIPv6;
