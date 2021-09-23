@@ -13,6 +13,42 @@
 #undef APSTUDIO_READONLY_SYMBOLS
 
 /////////////////////////////////////////////////////////////////////////////
+// Russian (Russia) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
+#pragma code_page(1252)
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Menu
+//
+
+IDR_MAINMENU MENU
+BEGIN
+    POPUP "File"
+    BEGIN
+        POPUP "Export"
+        BEGIN
+            MENUITEM "HTML to clipboard",           ID_EXPORT_HTMLTOCLIPBOARD
+            MENUITEM "HTML to file",                ID_EXPORT_HTMLTOFILE
+            MENUITEM "TXT to clipboard",            ID_EXPORT_TXTTOCLIPBOARD
+            MENUITEM "TXT to file",                 ID_EXPORT_TXTTOFILE
+        END
+        MENUITEM "Exit",                        ID_FILE_EXIT
+    END
+    POPUP "Help"
+    BEGIN
+        MENUITEM "Options",                     ID_HELP_OPTIONS
+        MENUITEM "About",                       ID_HELP_ABOUT
+    END
+END
+
+#endif
+/////////////////////////////////////////////////////////////////////////////
+
+
+/////////////////////////////////////////////////////////////////////////////
 // English (United States) resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
@@ -74,6 +110,7 @@ IDR_MAINFRAME           ICON                    "WinMTR.ico"
 IDD_WINMTR_DIALOG DIALOGEX 0, 0, 420, 220
 STYLE DS_SETFONT | DS_3DLOOK | DS_CENTER | WS_MINIMIZEBOX | WS_MAXIMIZEBOX | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU | WS_THICKFRAME
 EXSTYLE WS_EX_APPWINDOW
+MENU IDR_MAINMENU
 FONT 8, "MS Sans Serif", 0, 0, 0x1
 BEGIN
     DEFPUSHBUTTON   "&Start",ID_RESTART,235,10,50,14,BS_FLAT
@@ -261,6 +298,11 @@ BEGIN
 END
 
 IDD_DIALOG_OPTIONS AFX_DIALOG_LAYOUT
+BEGIN
+    0
+END
+
+IDD_WINMTR_DIALOG AFX_DIALOG_LAYOUT
 BEGIN
     0
 END

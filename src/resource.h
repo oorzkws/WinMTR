@@ -11,6 +11,7 @@
 #define IDD_DIALOG_OPTIONS              129
 #define IDD_DIALOG_PROPERTIES           131
 #define IDD_DIALOG_HELP                 132
+#define IDR_MAINMENU                    138
 #define IDC_EDIT_HOST                   1000
 #define IDC_LIST_MTR                    1001
 #define ID_RESTART                      1002
@@ -39,13 +40,21 @@
 #define IDC_COMBO_HOST                  1024
 #define IDC_EDIT_MAX_LRU                1025
 #define IDC_CHECK_IPV6                  1026
+#define ID_HELP_OPTIONS                 32771
+#define ID_HELP_ABOUT                   32772
+#define ID_FILE_EXIT                    32773
+#define ID_FILE_EXPORT                  32774
+#define ID_EXPORT_HTMLTOCLIPBOARD       32775
+#define ID_EXPORT_HTMLTOFILE            32776
+#define ID_EXPORT_TXTTOCLIPBOARD        32777
+#define ID_EXPORT_TXTTOFILE             32778
 
 // Next default values for new objects
 // 
 #ifdef APSTUDIO_INVOKED
 #ifndef APSTUDIO_READONLY_SYMBOLS
-#define _APS_NEXT_RESOURCE_VALUE        138
-#define _APS_NEXT_COMMAND_VALUE         32771
+#define _APS_NEXT_RESOURCE_VALUE        140
+#define _APS_NEXT_COMMAND_VALUE         32779
 #define _APS_NEXT_CONTROL_VALUE         1028
 #define _APS_NEXT_SYMED_VALUE           101
 #endif
