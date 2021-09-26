@@ -31,9 +31,9 @@ BEGIN
         POPUP "Export"
         BEGIN
             MENUITEM "HTML to clipboard",           ID_EXPORT_HTMLTOCLIPBOARD
-            MENUITEM "HTML to file",                ID_EXPORT_HTMLTOFILE
+            MENUITEM "HTML to file",                ID_EXPH
             MENUITEM "TXT to clipboard",            ID_EXPORT_TXTTOCLIPBOARD
-            MENUITEM "TXT to file",                 ID_EXPORT_TXTTOFILE
+            MENUITEM "TXT to file",                 ID_EXPT
         END
         MENUITEM "Exit",                        ID_FILE_EXIT
     END
@@ -97,7 +97,7 @@ IDR_MAINFRAME           ICON                    "WinMTR.ico"
 // Dialog
 //
 
-IDD_WINMTR_DIALOG DIALOGEX 0, 0, 420, 220
+IDD_WINMTR_DIALOG DIALOGEX 0, 0, 525, 275
 STYLE DS_SETFONT | DS_3DLOOK | DS_CENTER | WS_MINIMIZEBOX | WS_MAXIMIZEBOX | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU | WS_THICKFRAME
 EXSTYLE WS_EX_APPWINDOW
 MENU IDR_MAINMENU
@@ -106,8 +106,6 @@ BEGIN
     DEFPUSHBUTTON   "&Start",ID_RESTART,315,10,50,14,BS_FLAT
     PUSHBUTTON      "&Copy Text to clipboard",ID_CTTC,12,37,89,14,BS_FLAT
     PUSHBUTTON      "Co&py HTML to clipboard",ID_CHTC,111,37,89,14,BS_FLAT
-    PUSHBUTTON      "Export &TEXT",ID_EXPT,301,37,51,14,BS_FLAT
-    PUSHBUTTON      "Export &HTML",ID_EXPH,359,37,49,14,BS_FLAT
     CONTROL         "List1",IDC_LIST_MTR,"SysListView32",LVS_REPORT | LVS_SINGLESEL | LVS_NOSORTHEADER | WS_BORDER | WS_TABSTOP,5,58,409,157
     LTEXT           "Host:",IDC_STATIC,11,10,20,13,SS_CENTERIMAGE
     GROUPBOX        "",IDC_STATIC,5,0,365,30,BS_FLAT

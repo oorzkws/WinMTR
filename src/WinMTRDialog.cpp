@@ -97,8 +97,6 @@ void WinMTRDialog::DoDataExchange(CDataExchange* pDX)
 	DDX_Control(pDX, IDC_LIST_MTR, m_listMTR);
 	DDX_Control(pDX, IDC_STATICS, m_staticS);
 	DDX_Control(pDX, IDC_STATICJ, m_staticJ);
-	DDX_Control(pDX, ID_EXPH, m_buttonExpH);
-	DDX_Control(pDX, ID_EXPT, m_buttonExpT);
 }
 
 
@@ -310,13 +308,6 @@ void WinMTRDialog::OnSize(UINT nType, int cx, int cy)
 	ScreenToClient(&lb);
 	m_staticJ.SetWindowPos(NULL, lb.TopLeft().x, lb.TopLeft().y, rct.Width() - 16, lb.Height(), SWP_NOMOVE | SWP_NOZORDER);
 
-	m_buttonExpH.GetWindowRect(&lb);
-	ScreenToClient(&lb);
-	m_buttonExpH.SetWindowPos(NULL, rct.Width() - lb.Width()-16, lb.TopLeft().y, lb.Width(), lb.Height() , SWP_NOSIZE | SWP_NOZORDER);
-	m_buttonExpT.GetWindowRect(&lb);
-	ScreenToClient(&lb);
-	m_buttonExpT.SetWindowPos(NULL, rct.Width() - lb.Width()- 103, lb.TopLeft().y, lb.Width(), lb.Height() , SWP_NOSIZE | SWP_NOZORDER);
-	
 	m_listMTR.GetWindowRect(&lb);
 	ScreenToClient(&lb);
 	m_listMTR.SetWindowPos(NULL, lb.TopLeft().x, lb.TopLeft().y, rct.Width() - 17, rct.Height() - lb.top - 25, SWP_NOMOVE | SWP_NOZORDER);

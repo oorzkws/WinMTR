@@ -55,9 +55,6 @@ public:
 	CStatic	m_staticS;
 	CStatic	m_staticJ;
 	
-	CButton	m_buttonExpT;
-	CButton	m_buttonExpH;
-	
 	int InitMTRNet();
 	
 	int DisplayRedraw();
