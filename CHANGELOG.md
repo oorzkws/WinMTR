@@ -1,5 +1,10 @@
 CHANGELOG
 ========
+**Release 1.1 - 26.09.2021**
+- `[x]` * Changed unsecure functions
+- `[x]` * Beautify interface
+- `[x]` * Redesigned reports
+
 **Release 1.02 - 21.09.2021**
 - `[x]` * new icon
 - `[x]` + Connected with WinMTR Commandline Project

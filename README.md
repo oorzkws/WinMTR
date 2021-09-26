@@ -7,7 +7,7 @@ Origin Author: [René Schümann](https://github.com/White-Tiger) ([GitHub](https
 
 **WinMTRCmd** combines traceroute and ping functionality in a single network diagnostic tool. It is a command-line application based on WinMTR, which in turn is based on the original MTR.
 
-Origin Author: [Martin Riess](volrathmr+winmtrcmd@gmail.com) ([SourceForge](http://sourceforge.net/p/winmtrcmd))
+Origin Author: [Martin Riess](mailto:volrathmr+winmtrcmd@gmail.com) ([SourceForge](http://sourceforge.net/p/winmtrcmd))
 
 ### Download (binaries)
 * [**view all available**](https://github.com/aunited/WinMTR/releases)

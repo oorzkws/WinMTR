@@ -49,7 +49,7 @@ Usually this has to do with lame anti-virus or firewall applications. Stop all t
 
 2. I get an error saying the program cannot be executed.
 
-You are running the 64 bit version on a 32 bit platform. Try the WinMTR.exe stored in the WinMTR_x32 folder.
+You are running the 64 bit version on a 32-bit platform. Try the WinMTR.exe stored in the WinMTR_x32 folder.
 
 3. I get an error unspecified here.
 
@@ -72,3 +72,4 @@ If you are a developer planning to extend the current open source code, please l
 Use the form available at https://sctools.cyou or write to us contact AT sctools DOT cyou
 
 See License.md to read the credits
+-
