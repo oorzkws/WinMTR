@@ -296,7 +296,7 @@
       <PreprocessorDefinitions>WIN32;NDEBUG;_WINDOWS;_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <AssemblerListingLocation>.\obj\Release_ARM64\</AssemblerListingLocation>
       <PrecompiledHeaderOutputFile>.\obj\Release_ARM64\WinMTR.pch</PrecompiledHeaderOutputFile>
-      <ObjectFileName>.\Release_ARM64\</ObjectFileName>
+      <ObjectFileName>.\obj\Release_ARM64\</ObjectFileName>
       <ProgramDataBaseFileName>.\obj\Release_ARM64\</ProgramDataBaseFileName>
       <LanguageStandard>Default</LanguageStandard>
     </ClCompile>
