@@ -96,7 +96,6 @@ void WinMTRDialog::DoDataExchange(CDataExchange* pDX)
 	DDX_Control(pDX, IDC_CHECK_IPV6, m_checkIPv6);
 	DDX_Control(pDX, IDC_LIST_MTR, m_listMTR);
 	DDX_Control(pDX, IDC_STATICS, m_staticS);
-	DDX_Control(pDX, IDC_STATICJ, m_staticJ);
 }
 
 
@@ -303,10 +302,6 @@ void WinMTRDialog::OnSize(UINT nType, int cx, int cy)
 	m_staticS.GetWindowRect(&lb);
 	ScreenToClient(&lb);
 	m_staticS.SetWindowPos(NULL, lb.TopLeft().x, lb.TopLeft().y, rct.Width()-lb.TopLeft().x-8, lb.Height() , SWP_NOMOVE | SWP_NOZORDER);
-	
-	m_staticJ.GetWindowRect(&lb);
-	ScreenToClient(&lb);
-	m_staticJ.SetWindowPos(NULL, lb.TopLeft().x, lb.TopLeft().y, rct.Width() - 16, lb.Height(), SWP_NOMOVE | SWP_NOZORDER);
 
 	m_listMTR.GetWindowRect(&lb);
 	ScreenToClient(&lb);

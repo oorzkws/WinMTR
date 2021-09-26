@@ -36,7 +36,6 @@
 #define IDC_EDIT_PWORST                 1020
 #define IDC_EDIT_PCOMMENT               1021
 #define IDC_STATICS                     1022
-#define IDC_STATICJ                     1023
 #define IDC_COMBO_HOST                  1024
 #define IDC_EDIT_MAX_LRU                1025
 #define IDC_CHECK_IPV6                  1026
@@ -44,10 +43,6 @@
 #define ID_HELP_ABOUT                   32772
 #define ID_FILE_EXIT                    32773
 #define ID_FILE_EXPORT                  32774
-#define ID_EXPORT_HTMLTOCLIPBOARD       32775
-#define ID_EXPORT_HTMLTOFILE            32776
-#define ID_EXPORT_TXTTOCLIPBOARD        32777
-#define ID_EXPORT_TXTTOFILE             32778
 
 // Next default values for new objects
 // 

@@ -53,7 +53,6 @@ public:
 	CMFCLinkCtrl m_buttonAppnor;
 	
 	CStatic	m_staticS;
-	CStatic	m_staticJ;
 	
 	int InitMTRNet();
 	
