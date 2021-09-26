@@ -39,10 +39,7 @@
 #define IDC_COMBO_HOST                  1024
 #define IDC_EDIT_MAX_LRU                1025
 #define IDC_CHECK_IPV6                  1026
-#define ID_HELP_OPTIONS                 32771
-#define ID_HELP_ABOUT                   32772
 #define ID_FILE_EXIT                    32773
-#define ID_FILE_EXPORT                  32774
 #define ID_ABOUT                        32779
 
 // Next default values for new objects

@@ -210,7 +210,7 @@ BEGIN
             VALUE "LegalCopyright", "WinMTR 1.1 (c) 2021"
             VALUE "OriginalFilename", "WinMTR.exe"
             VALUE "ProductName", "WinMTR"
-                VALUE "ProductVersion", "1.1.0.0"
+            VALUE "ProductVersion", "1.1.0.0"
         END
     END
     BLOCK "VarFileInfo"
