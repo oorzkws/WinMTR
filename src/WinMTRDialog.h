@@ -117,6 +117,7 @@ public:
 	afx_msg void OnClose();
 	afx_msg void OnBnClickedCancel();
 	afx_msg void OnFileExit();
+	afx_msg void OnAbout();
 };
 
 #endif // ifndef WINMTRDIALOG_H_

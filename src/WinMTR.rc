@@ -40,7 +40,7 @@ BEGIN
     POPUP "Help"
     BEGIN
         MENUITEM "Options",                     ID_OPTIONS
-        MENUITEM "About",                       ID_HELP_ABOUT
+        MENUITEM "About",                       ID_ABOUT
     END
 END
 
