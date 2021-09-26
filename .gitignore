@@ -4,8 +4,8 @@
 *.o
 .idea
 .vs
-src/Release*
-src/Debug*
+src/bin
+src/obj
 src-cmd/bin
 src-cmd/obj
 *.user

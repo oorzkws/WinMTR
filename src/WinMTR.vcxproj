@@ -126,44 +126,44 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
-    <OutDir>.\Release_x32\</OutDir>
-    <IntDir>.\Release_x32\</IntDir>
+    <OutDir>.\bin\Release_x32\</OutDir>
+    <IntDir>.\obj\Release_x32\</IntDir>
     <LinkIncremental>false</LinkIncremental>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">
     <LinkIncremental>false</LinkIncremental>
-    <OutDir>.\Release_ARM\</OutDir>
-    <IntDir>.\Release_ARM\</IntDir>
+    <OutDir>.\bin\Release_ARM\</OutDir>
+    <IntDir>.\obj\Release_ARM\</IntDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-    <OutDir>.\Release_x64\</OutDir>
-    <IntDir>.\Release_x64\</IntDir>
+    <OutDir>.\bin\Release_x64\</OutDir>
+    <IntDir>.\obj\Release_x64\</IntDir>
     <LinkIncremental>false</LinkIncremental>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|ARM64'">
     <LinkIncremental>false</LinkIncremental>
-    <OutDir>.\Release_ARM64\</OutDir>
-    <IntDir>.\Release_ARM64\</IntDir>
+    <OutDir>.\bin\Release_ARM64\</OutDir>
+    <IntDir>.\obj\Release_ARM64\</IntDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <OutDir>.\Debug_x32\</OutDir>
-    <IntDir>.\Debug_x32\</IntDir>
+    <OutDir>.\bin\Debug_x32\</OutDir>
+    <IntDir>.\obj\Debug_x32\</IntDir>
     <LinkIncremental>true</LinkIncremental>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">
     <LinkIncremental>true</LinkIncremental>
-    <OutDir>.\Debug_ARM\</OutDir>
-    <IntDir>.\Debug_ARM\</IntDir>
+    <OutDir>.\bin\Debug_ARM\</OutDir>
+    <IntDir>.\obj\Debug_ARM\</IntDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <OutDir>.\Debug_x64\</OutDir>
-    <IntDir>.\Debug_x64\</IntDir>
+    <OutDir>.\bin\Debug_x64\</OutDir>
+    <IntDir>.\obj\Debug_x64\</IntDir>
     <LinkIncremental>true</LinkIncremental>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|ARM64'">
     <LinkIncremental>true</LinkIncremental>
-    <OutDir>.\Debug_ARM64\</OutDir>
-    <IntDir>.\Debug_ARM64\</IntDir>
+    <OutDir>.\bin\Debug_ARM64\</OutDir>
+    <IntDir>.\obj\Debug_ARM64\</IntDir>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
@@ -175,10 +175,10 @@
       <SuppressStartupBanner>true</SuppressStartupBanner>
       <WarningLevel>Level3</WarningLevel>
       <PreprocessorDefinitions>WIN32;NDEBUG;_WINDOWS;_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AssemblerListingLocation>.\Release_x32\</AssemblerListingLocation>
-      <PrecompiledHeaderOutputFile>.\Release_x32\WinMTR.pch</PrecompiledHeaderOutputFile>
-      <ObjectFileName>.\Release_x32\</ObjectFileName>
-      <ProgramDataBaseFileName>.\Release_x32\</ProgramDataBaseFileName>
+      <AssemblerListingLocation>.\obj\Release_x32\</AssemblerListingLocation>
+      <PrecompiledHeaderOutputFile>.\obj\Release_x32\WinMTR.pch</PrecompiledHeaderOutputFile>
+      <ObjectFileName>.\obj\Release_x32\</ObjectFileName>
+      <ProgramDataBaseFileName>.\obj\Release_x32\</ProgramDataBaseFileName>
     </ClCompile>
     <Midl>
       <SuppressStartupBanner>true</SuppressStartupBanner>
@@ -198,7 +198,7 @@
     <Link>
       <SuppressStartupBanner>true</SuppressStartupBanner>
       <SubSystem>Windows</SubSystem>
-      <OutputFile>.\Release_x32\WinMTR.exe</OutputFile>
+      <OutputFile>.\bin\Release_x32\WinMTR.exe</OutputFile>
       <AdditionalDependencies>odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <UACExecutionLevel>AsInvoker</UACExecutionLevel>
       <EnableUAC>false</EnableUAC>
@@ -215,10 +215,10 @@
       <SuppressStartupBanner>true</SuppressStartupBanner>
       <WarningLevel>Level3</WarningLevel>
       <PreprocessorDefinitions>WIN32;NDEBUG;_WINDOWS;_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AssemblerListingLocation>.\Release_ARM\</AssemblerListingLocation>
-      <PrecompiledHeaderOutputFile>.\Release_ARM\WinMTR.pch</PrecompiledHeaderOutputFile>
-      <ObjectFileName>.\Release_ARM\</ObjectFileName>
-      <ProgramDataBaseFileName>.\Release_ARM\</ProgramDataBaseFileName>
+      <AssemblerListingLocation>.\obj\Release_ARM\</AssemblerListingLocation>
+      <PrecompiledHeaderOutputFile>.\obj\Release_ARM\WinMTR.pch</PrecompiledHeaderOutputFile>
+      <ObjectFileName>.\obj\Release_ARM\</ObjectFileName>
+      <ProgramDataBaseFileName>.\obj\Release_ARM\</ProgramDataBaseFileName>
     </ClCompile>
     <Midl>
       <SuppressStartupBanner>true</SuppressStartupBanner>
@@ -237,7 +237,7 @@
     <Link>
       <SuppressStartupBanner>true</SuppressStartupBanner>
       <SubSystem>Windows</SubSystem>
-      <OutputFile>.\Release_ARM\WinMTR.exe</OutputFile>
+      <OutputFile>.\bin\Release_ARM\WinMTR.exe</OutputFile>
       <AdditionalDependencies>odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <UACExecutionLevel>AsInvoker</UACExecutionLevel>
       <EnableUAC>false</EnableUAC>
@@ -254,10 +254,10 @@
       <SuppressStartupBanner>true</SuppressStartupBanner>
       <WarningLevel>Level3</WarningLevel>
       <PreprocessorDefinitions>WIN32;NDEBUG;_WINDOWS;_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AssemblerListingLocation>.\Release_x64\</AssemblerListingLocation>
-      <PrecompiledHeaderOutputFile>.\Release_x64\WinMTR.pch</PrecompiledHeaderOutputFile>
-      <ObjectFileName>.\Release_x64\</ObjectFileName>
-      <ProgramDataBaseFileName>.\Release_x64\</ProgramDataBaseFileName>
+      <AssemblerListingLocation>.\obj\Release_x64\</AssemblerListingLocation>
+      <PrecompiledHeaderOutputFile>.\obj\Release_x64\WinMTR.pch</PrecompiledHeaderOutputFile>
+      <ObjectFileName>.\obj\Release_x64\</ObjectFileName>
+      <ProgramDataBaseFileName>.\obj\Release_x64\</ProgramDataBaseFileName>
       <LanguageStandard>Default</LanguageStandard>
     </ClCompile>
     <Midl>
@@ -277,7 +277,7 @@
     <Link>
       <SuppressStartupBanner>true</SuppressStartupBanner>
       <SubSystem>Windows</SubSystem>
-      <OutputFile>.\Release_x64\WinMTR.exe</OutputFile>
+      <OutputFile>.\bin\Release_x64\WinMTR.exe</OutputFile>
       <AdditionalDependencies>odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <UACExecutionLevel>AsInvoker</UACExecutionLevel>
       <EnableUAC>false</EnableUAC>
@@ -294,10 +294,10 @@
       <SuppressStartupBanner>true</SuppressStartupBanner>
       <WarningLevel>Level3</WarningLevel>
       <PreprocessorDefinitions>WIN32;NDEBUG;_WINDOWS;_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AssemblerListingLocation>.\Release_ARM64\</AssemblerListingLocation>
-      <PrecompiledHeaderOutputFile>.\Release_ARM64\WinMTR.pch</PrecompiledHeaderOutputFile>
+      <AssemblerListingLocation>.\obj\Release_ARM64\</AssemblerListingLocation>
+      <PrecompiledHeaderOutputFile>.\obj\Release_ARM64\WinMTR.pch</PrecompiledHeaderOutputFile>
       <ObjectFileName>.\Release_ARM64\</ObjectFileName>
-      <ProgramDataBaseFileName>.\Release_ARM64\</ProgramDataBaseFileName>
+      <ProgramDataBaseFileName>.\obj\Release_ARM64\</ProgramDataBaseFileName>
       <LanguageStandard>Default</LanguageStandard>
     </ClCompile>
     <Midl>
@@ -317,7 +317,7 @@
     <Link>
       <SuppressStartupBanner>true</SuppressStartupBanner>
       <SubSystem>Windows</SubSystem>
-      <OutputFile>.\Release_ARM64\WinMTR.exe</OutputFile>
+      <OutputFile>.\bin\Release_ARM64\WinMTR.exe</OutputFile>
       <AdditionalDependencies>odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <UACExecutionLevel>AsInvoker</UACExecutionLevel>
       <EnableUAC>false</EnableUAC>
@@ -337,10 +337,10 @@
       </MinimalRebuild>
       <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
       <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AssemblerListingLocation>.\Debug_x32\</AssemblerListingLocation>
-      <PrecompiledHeaderOutputFile>.\Debug_x32\WinMTR.pch</PrecompiledHeaderOutputFile>
-      <ObjectFileName>.\Debug_x32\</ObjectFileName>
-      <ProgramDataBaseFileName>.\Debug_x32\</ProgramDataBaseFileName>
+      <AssemblerListingLocation>.\obj\Debug_x32\</AssemblerListingLocation>
+      <PrecompiledHeaderOutputFile>.\obj\Debug_x32\WinMTR.pch</PrecompiledHeaderOutputFile>
+      <ObjectFileName>.\obj\Debug_x32\</ObjectFileName>
+      <ProgramDataBaseFileName>.\obj\Debug_x32\</ProgramDataBaseFileName>
       <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
     </ClCompile>
     <Midl>
@@ -362,7 +362,7 @@
       <SuppressStartupBanner>true</SuppressStartupBanner>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <SubSystem>Windows</SubSystem>
-      <OutputFile>.\Debug_x32\WinMTR.exe</OutputFile>
+      <OutputFile>.\bin\Debug_x32\WinMTR.exe</OutputFile>
       <AdditionalDependencies>odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <UACExecutionLevel>AsInvoker</UACExecutionLevel>
       <EnableUAC>false</EnableUAC>
@@ -380,10 +380,10 @@
       <MinimalRebuild>true</MinimalRebuild>
       <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
       <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AssemblerListingLocation>.\Debug_ARM\</AssemblerListingLocation>
-      <PrecompiledHeaderOutputFile>.\Debug_ARM\WinMTR.pch</PrecompiledHeaderOutputFile>
-      <ObjectFileName>.\Debug_ARM\</ObjectFileName>
-      <ProgramDataBaseFileName>.\Debug_ARM\</ProgramDataBaseFileName>
+      <AssemblerListingLocation>.\obj\Debug_ARM\</AssemblerListingLocation>
+      <PrecompiledHeaderOutputFile>.\obj\Debug_ARM\WinMTR.pch</PrecompiledHeaderOutputFile>
+      <ObjectFileName>.\obj\Debug_ARM\</ObjectFileName>
+      <ProgramDataBaseFileName>.\obj\Debug_ARM\</ProgramDataBaseFileName>
       <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
     </ClCompile>
     <Midl>
@@ -404,7 +404,7 @@
       <SuppressStartupBanner>true</SuppressStartupBanner>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <SubSystem>Windows</SubSystem>
-      <OutputFile>.\Debug_ARM\WinMTR.exe</OutputFile>
+      <OutputFile>.\bin\Debug_ARM\WinMTR.exe</OutputFile>
       <AdditionalDependencies>odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <UACExecutionLevel>AsInvoker</UACExecutionLevel>
       <EnableUAC>false</EnableUAC>
@@ -421,10 +421,10 @@
       <WarningLevel>Level3</WarningLevel>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
       <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AssemblerListingLocation>.\Debug_x64\</AssemblerListingLocation>
-      <PrecompiledHeaderOutputFile>.\Debug_x64\WinMTR.pch</PrecompiledHeaderOutputFile>
-      <ObjectFileName>.\Debug_x64\</ObjectFileName>
-      <ProgramDataBaseFileName>.\Debug_x64\</ProgramDataBaseFileName>
+      <AssemblerListingLocation>.\obj\Debug_x64\</AssemblerListingLocation>
+      <PrecompiledHeaderOutputFile>.\obj\Debug_x64\WinMTR.pch</PrecompiledHeaderOutputFile>
+      <ObjectFileName>.\obj\Debug_x64\</ObjectFileName>
+      <ProgramDataBaseFileName>.\obj\Debug_x64\</ProgramDataBaseFileName>
       <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
     </ClCompile>
     <Midl>
@@ -445,7 +445,7 @@
       <SuppressStartupBanner>true</SuppressStartupBanner>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <SubSystem>Windows</SubSystem>
-      <OutputFile>.\Debug_x64\WinMTR.exe</OutputFile>
+      <OutputFile>.\bin\Debug_x64\WinMTR.exe</OutputFile>
       <AdditionalDependencies>odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <UACExecutionLevel>AsInvoker</UACExecutionLevel>
       <EnableUAC>false</EnableUAC>
@@ -462,10 +462,10 @@
       <WarningLevel>Level3</WarningLevel>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
       <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AssemblerListingLocation>.\Debug_ARM64\</AssemblerListingLocation>
-      <PrecompiledHeaderOutputFile>.\Debug_ARM64\WinMTR.pch</PrecompiledHeaderOutputFile>
-      <ObjectFileName>.\Debug_ARM64\</ObjectFileName>
-      <ProgramDataBaseFileName>.\Debug_ARM64\</ProgramDataBaseFileName>
+      <AssemblerListingLocation>.\obj\Debug_ARM64\</AssemblerListingLocation>
+      <PrecompiledHeaderOutputFile>.\obj\Debug_ARM64\WinMTR.pch</PrecompiledHeaderOutputFile>
+      <ObjectFileName>.\obj\Debug_ARM64\</ObjectFileName>
+      <ProgramDataBaseFileName>.\obj\Debug_ARM64\</ProgramDataBaseFileName>
       <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
     </ClCompile>
     <Midl>
@@ -486,7 +486,7 @@
       <SuppressStartupBanner>true</SuppressStartupBanner>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <SubSystem>Windows</SubSystem>
-      <OutputFile>.\Debug_ARM64\WinMTR.exe</OutputFile>
+      <OutputFile>.\bin\Debug_ARM64\WinMTR.exe</OutputFile>
       <AdditionalDependencies>odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <UACExecutionLevel>AsInvoker</UACExecutionLevel>
       <EnableUAC>false</EnableUAC>
@@ -519,6 +519,9 @@
   </ItemGroup>
   <ItemGroup>
     <CustomBuild Include="WinMTR.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resource.resx" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

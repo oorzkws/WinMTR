@@ -184,7 +184,7 @@
     <Midl>
       <SuppressStartupBanner>true</SuppressStartupBanner>
       <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <TypeLibraryName>.\obj\Release\WinMTRCmd.tlb</TypeLibraryName>
+      <TypeLibraryName>.\obj\Release_x32\WinMTRCmd.tlb</TypeLibraryName>
       <MkTypLibCompatible>true</MkTypLibCompatible>
       <TargetEnvironment>Win32</TargetEnvironment>
     </Midl>
@@ -194,7 +194,7 @@
     </ResourceCompile>
     <Bscmake>
       <SuppressStartupBanner>true</SuppressStartupBanner>
-      <OutputFile>.\obj\Release\WinMTRCmd.bsc</OutputFile>
+      <OutputFile>.\obj\Release_x32\WinMTRCmd.bsc</OutputFile>
     </Bscmake>
     <Link>
       <SuppressStartupBanner>true</SuppressStartupBanner>
@@ -227,7 +227,7 @@
     <Midl>
       <SuppressStartupBanner>true</SuppressStartupBanner>
       <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <TypeLibraryName>.\obj\Release\WinMTRCmd.tlb</TypeLibraryName>
+      <TypeLibraryName>.\obj\Release_ARM\WinMTRCmd.tlb</TypeLibraryName>
       <MkTypLibCompatible>true</MkTypLibCompatible>
     </Midl>
     <ResourceCompile>
@@ -236,7 +236,7 @@
     </ResourceCompile>
     <Bscmake>
       <SuppressStartupBanner>true</SuppressStartupBanner>
-      <OutputFile>.\obj\Release\WinMTRCmd.bsc</OutputFile>
+      <OutputFile>.\obj\Release_ARM\WinMTRCmd.bsc</OutputFile>
     </Bscmake>
     <Link>
       <SuppressStartupBanner>true</SuppressStartupBanner>
@@ -269,7 +269,7 @@
     <Midl>
       <SuppressStartupBanner>true</SuppressStartupBanner>
       <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <TypeLibraryName>.\obj\Release\WinMTRCmd.tlb</TypeLibraryName>
+      <TypeLibraryName>.\obj\Release_ARM64\WinMTRCmd.tlb</TypeLibraryName>
       <MkTypLibCompatible>true</MkTypLibCompatible>
     </Midl>
     <ResourceCompile>
@@ -278,7 +278,7 @@
     </ResourceCompile>
     <Bscmake>
       <SuppressStartupBanner>true</SuppressStartupBanner>
-      <OutputFile>.\obj\Release\WinMTRCmd.bsc</OutputFile>
+      <OutputFile>.\obj\Release_ARM64\WinMTRCmd.bsc</OutputFile>
     </Bscmake>
     <Link>
       <SuppressStartupBanner>true</SuppressStartupBanner>
@@ -308,7 +308,7 @@
     <Midl>
       <SuppressStartupBanner>true</SuppressStartupBanner>
       <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <TypeLibraryName>.\obj\Release\WinMTRCmd.tlb</TypeLibraryName>
+      <TypeLibraryName>.\obj\Release_x64\WinMTRCmd.tlb</TypeLibraryName>
       <MkTypLibCompatible>true</MkTypLibCompatible>
     </Midl>
     <ResourceCompile>
@@ -317,7 +317,7 @@
     </ResourceCompile>
     <Bscmake>
       <SuppressStartupBanner>true</SuppressStartupBanner>
-      <OutputFile>.\obj\Release\WinMTRCmd.bsc</OutputFile>
+      <OutputFile>.\obj\Release_x64\WinMTRCmd.bsc</OutputFile>
     </Bscmake>
     <Link>
       <SuppressStartupBanner>true</SuppressStartupBanner>
@@ -342,16 +342,16 @@
       </MinimalRebuild>
       <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
       <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AssemblerListingLocation>.\bin\Debug\</AssemblerListingLocation>
-      <PrecompiledHeaderOutputFile>.\bin\Debug\WinMTRCmd.pch</PrecompiledHeaderOutputFile>
-      <ObjectFileName>.\obj\Debug\</ObjectFileName>
-      <ProgramDataBaseFileName>.\obj\Debug\</ProgramDataBaseFileName>
+      <AssemblerListingLocation>.\bin\Debug_x32\</AssemblerListingLocation>
+      <PrecompiledHeaderOutputFile>.\bin\Debug_x32\WinMTRCmd.pch</PrecompiledHeaderOutputFile>
+      <ObjectFileName>.\obj\Debug_x32\</ObjectFileName>
+      <ProgramDataBaseFileName>.\obj\Debug_x32\</ProgramDataBaseFileName>
       <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
     </ClCompile>
     <Midl>
       <SuppressStartupBanner>true</SuppressStartupBanner>
       <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <TypeLibraryName>.\obj\Debug\WinMTRCmd.tlb</TypeLibraryName>
+      <TypeLibraryName>.\obj\Debug_x32\WinMTRCmd.tlb</TypeLibraryName>
       <MkTypLibCompatible>true</MkTypLibCompatible>
       <TargetEnvironment>Win32</TargetEnvironment>
     </Midl>
@@ -361,7 +361,7 @@
     </ResourceCompile>
     <Bscmake>
       <SuppressStartupBanner>true</SuppressStartupBanner>
-      <OutputFile>.\Debug\WinMTRCmd.bsc</OutputFile>
+      <OutputFile>.\Debug_x32\WinMTRCmd.bsc</OutputFile>
     </Bscmake>
     <Link>
       <SuppressStartupBanner>true</SuppressStartupBanner>
@@ -396,7 +396,7 @@
     <Midl>
       <SuppressStartupBanner>true</SuppressStartupBanner>
       <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <TypeLibraryName>.\obj\Debug\WinMTRCmd.tlb</TypeLibraryName>
+      <TypeLibraryName>.\obj\Debug_ARM\WinMTRCmd.tlb</TypeLibraryName>
       <MkTypLibCompatible>true</MkTypLibCompatible>
     </Midl>
     <ResourceCompile>
@@ -405,7 +405,7 @@
     </ResourceCompile>
     <Bscmake>
       <SuppressStartupBanner>true</SuppressStartupBanner>
-      <OutputFile>.\Debug\WinMTRCmd.bsc</OutputFile>
+      <OutputFile>.\Debug_ARM\WinMTRCmd.bsc</OutputFile>
     </Bscmake>
     <Link>
       <SuppressStartupBanner>true</SuppressStartupBanner>
@@ -433,14 +433,14 @@
       <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <AssemblerListingLocation>.\bin\Debug_ARM64\</AssemblerListingLocation>
       <PrecompiledHeaderOutputFile>.\bin\Debug_ARM64\WinMTRCmd.pch</PrecompiledHeaderOutputFile>
-      <ObjectFileName>.\obj\Debug\</ObjectFileName>
+      <ObjectFileName>.\obj\Debug_ARM64\</ObjectFileName>
       <ProgramDataBaseFileName>.\obj\Debug_ARM64\</ProgramDataBaseFileName>
       <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
     </ClCompile>
     <Midl>
       <SuppressStartupBanner>true</SuppressStartupBanner>
       <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <TypeLibraryName>.\obj\Debug\WinMTRCmd.tlb</TypeLibraryName>
+      <TypeLibraryName>.\obj\Debug_ARM64\WinMTRCmd.tlb</TypeLibraryName>
       <MkTypLibCompatible>true</MkTypLibCompatible>
     </Midl>
     <ResourceCompile>
@@ -449,7 +449,7 @@
     </ResourceCompile>
     <Bscmake>
       <SuppressStartupBanner>true</SuppressStartupBanner>
-      <OutputFile>.\Debug\WinMTRCmd.bsc</OutputFile>
+      <OutputFile>.\Debug_ARM64\WinMTRCmd.bsc</OutputFile>
     </Bscmake>
     <Link>
       <SuppressStartupBanner>true</SuppressStartupBanner>
@@ -472,16 +472,16 @@
       <WarningLevel>Level3</WarningLevel>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
       <PreprocessorDefinitions>WIN32;_WIN64;_AMD64;_DEBUG;_WINDOWS;_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AssemblerListingLocation>.\obj\Debug\</AssemblerListingLocation>
-      <PrecompiledHeaderOutputFile>.\obj\Debug\WinMTRCmd.pch</PrecompiledHeaderOutputFile>
-      <ObjectFileName>.\obj\Debug\</ObjectFileName>
-      <ProgramDataBaseFileName>.\obj\Debug\</ProgramDataBaseFileName>
+      <AssemblerListingLocation>.\obj\Debug_x64\</AssemblerListingLocation>
+      <PrecompiledHeaderOutputFile>.\obj\Debug_x64\WinMTRCmd.pch</PrecompiledHeaderOutputFile>
+      <ObjectFileName>.\obj\Debug_x64\</ObjectFileName>
+      <ProgramDataBaseFileName>.\obj\Debug_x64\</ProgramDataBaseFileName>
       <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
     </ClCompile>
     <Midl>
       <SuppressStartupBanner>true</SuppressStartupBanner>
       <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <TypeLibraryName>.\obj\Debug\WinMTRCmd.tlb</TypeLibraryName>
+      <TypeLibraryName>.\obj\Debug_x64\WinMTRCmd.tlb</TypeLibraryName>
       <MkTypLibCompatible>true</MkTypLibCompatible>
     </Midl>
     <ResourceCompile>
@@ -490,7 +490,7 @@
     </ResourceCompile>
     <Bscmake>
       <SuppressStartupBanner>true</SuppressStartupBanner>
-      <OutputFile>.\obj\Debug\WinMTRCmd.bsc</OutputFile>
+      <OutputFile>.\obj\Debug_x64\WinMTRCmd.bsc</OutputFile>
     </Bscmake>
     <Link>
       <SuppressStartupBanner>true</SuppressStartupBanner>
