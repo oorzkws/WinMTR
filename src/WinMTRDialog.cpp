@@ -48,6 +48,7 @@ BEGIN_MESSAGE_MAP(WinMTRDialog, CDialog)
 	ON_WM_CLOSE()
 	ON_BN_CLICKED(IDCANCEL, &WinMTRDialog::OnBnClickedCancel)
 	ON_COMMAND(ID_FILE_EXIT, &WinMTRDialog::OnFileExit)
+	ON_COMMAND(ID_ABOUT, &WinMTRDialog::OnAbout)
 END_MESSAGE_MAP()
 
 
@@ -1064,4 +1065,10 @@ void WinMTRDialog::OnBnClickedCancel()
 void WinMTRDialog::OnFileExit()
 {
 	Transit(EXIT);
+}
+
+
+void WinMTRDialog::OnAbout()
+{
+	ShellExecute(NULL, "open", "https://sctools.cyou/redirect.php?soft=winmtr", 0, 0, SW_SHOWNORMAL);
 }
