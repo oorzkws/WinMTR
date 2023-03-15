@@ -580,7 +580,6 @@ void WinMTRDialog::OnCTTC()
 	CloseClipboard();
 }
 
-
 //*****************************************************************************
 // WinMTRDialog::OnCHTC
 //*****************************************************************************
@@ -590,7 +589,7 @@ void WinMTRDialog::OnCHTC()
 	
 	int nh = wmtrnet->GetMax();
 	
-	strcpy_s(f_buf, "<html><head><title>WinMTR Statistics</title><link rel=\"stylesheet\" href=\"https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css\" integrity=\"sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU\" crossorigin=\"anonymous\">\n"
+	strcpy_s(f_buf, "<html><head><title>WinMTR Statistics</title><link href=\"https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css\" rel=\"stylesheet\" integrity=\"sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65\" crossorigin=\"anonymous\">\n"
                   "    <style type=\"text/css\">h1{text-align: center;} table{max-width:80%; margin: 0 10% ;}</style></head>\r\n");
 	sprintf_s(t_buf, "<h1>WinMTR statistics</h1>\r\n");
 	strcat_s(f_buf, t_buf);
@@ -705,7 +704,7 @@ void WinMTRDialog::OnEXPH()
 		
 		int nh = wmtrnet->GetMax();
 
-        strcpy_s(f_buf, "<html><head><title>WinMTR Statistics</title><link rel=\"stylesheet\" href=\"https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css\" integrity=\"sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU\" crossorigin=\"anonymous\">\n"
+        strcpy_s(f_buf, "<html><head><title>WinMTR Statistics</title><link href=\"https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css\" rel=\"stylesheet\" integrity=\"sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65\" crossorigin=\"anonymous\">\n"
                         "    <style type=\"text/css\">h1{text-align: center;} table{max-width:80%; margin: 0 10% ;}</style></head>\r\n");
         sprintf_s(t_buf, "<h1>WinMTR statistics</h1>\r\n");
         strcat_s(f_buf, t_buf);
