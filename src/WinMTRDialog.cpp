@@ -67,13 +67,13 @@ WinMTRDialog::WinMTRDialog(CWnd* pParent)
 	pingsize = DEFAULT_PING_SIZE;
 	maxLRU = DEFAULT_MAX_LRU;
 	nrLRU = 0;
-	
+
 	hasIntervalFromCmdLine = false;
 	hasPingsizeFromCmdLine = false;
 	hasMaxLRUFromCmdLine = false;
 	hasUseDNSFromCmdLine = false;
 	hasUseIPv6FromCmdLine = false;
-	
+
 	traceThreadMutex = CreateMutex(NULL, FALSE, NULL);
 	wmtrnet = new WinMTRNet(this);
 	if(!wmtrnet->hasIPv6) m_checkIPv6.EnableWindow(FALSE);
@@ -110,42 +110,42 @@ BOOL WinMTRDialog::OnInitDialog()
 		EndDialog(-1);
 		return TRUE;
 	}
-	
+
 #ifndef  _WIN64
 	char caption[] = {"WinMTR (Live) v1.1 32bit"};
 #else
 	char caption[] = {"WinMTR (Live) v1.1 64bit"};
 #endif
-	
+
 	SetTimer(1, WINMTR_DIALOG_TIMER, NULL);
 	SetWindowText(caption);
-	
+
 	SetIcon(m_hIcon, TRUE);
 	SetIcon(m_hIcon, FALSE);
-	
+
 	if(!statusBar.Create(this))
 		AfxMessageBox("Error creating status bar");
 	statusBar.GetStatusBarCtrl().SetMinHeight(23);
-	
+
 	UINT sbi[1];
 	sbi[0] = IDS_STRING_SB_NAME;
 	statusBar.SetIndicators(sbi,1);
 	statusBar.SetPaneInfo(0, statusBar.GetItemID(0),SBPS_STRETCH, NULL);
-	
+
 	// create Appnor button
-	if(m_buttonAppnor.Create(_T("www.sctools.cyou"), WS_CHILD|WS_VISIBLE|WS_TABSTOP, CRect(0,0,0,0), &statusBar, 1234)) {
-		m_buttonAppnor.SetURL("https://sctools.cyou/redirect.php?soft=winmtr");
+	if(m_buttonAppnor.Create(_T("winmtr.net"), WS_CHILD|WS_VISIBLE|WS_TABSTOP, CRect(0,0,0,0), &statusBar, 1234)) {
+		m_buttonAppnor.SetURL("https://winmtr.net/");
 		if(statusBar.AddPane(1234,1)) {
 			statusBar.SetPaneWidth(statusBar.CommandToIndex(1234),100);
 			statusBar.AddPaneControl(m_buttonAppnor,1234,true);
 		}
 	}
-	
+
 	for(int i = 0; i< MTR_NR_COLS; i++)
 		m_listMTR.InsertColumn(i, MTR_COLS[i], LVCFMT_LEFT, MTR_COL_LENGTH[i] , -1);
-		
+
 	m_comboHost.SetFocus();
-	
+
 	// We need to resize the dialog to make room for control bars.
 	// First, figure out how big the control bars are.
 	CRect rcClientStart;
@@ -153,13 +153,13 @@ BOOL WinMTRDialog::OnInitDialog()
 	GetClientRect(rcClientStart);
 	RepositionBars(AFX_IDW_CONTROLBAR_FIRST, AFX_IDW_CONTROLBAR_LAST,
 				   0, reposQuery, rcClientNow);
-				   
+
 	// Now move all the controls so they are in the same relative
 	// position within the remaining client area as they would be
 	// with no control bars.
 	CPoint ptOffset(rcClientNow.left - rcClientStart.left,
 					rcClientNow.top - rcClientStart.top);
-					
+
 	CRect  rcChild;
 	CWnd* pwndChild = GetWindow(GW_CHILD);
 	while(pwndChild) {
@@ -169,24 +169,24 @@ BOOL WinMTRDialog::OnInitDialog()
 		pwndChild->MoveWindow(rcChild, FALSE);
 		pwndChild = pwndChild->GetNextWindow();
 	}
-	
+
 	// Adjust the dialog window dimensions
 	CRect rcWindow;
 	GetWindowRect(rcWindow);
 	rcWindow.right += rcClientStart.Width() - rcClientNow.Width();
 	rcWindow.bottom += rcClientStart.Height() - rcClientNow.Height();
 	MoveWindow(rcWindow, FALSE);
-	
+
 	// And position the control bars
 	RepositionBars(AFX_IDW_CONTROLBAR_FIRST, AFX_IDW_CONTROLBAR_LAST, 0);
-	
+
 	InitRegistry();
-	
+
 	if(m_autostart) {
 		m_comboHost.SetWindowText(msz_defaulthostname);
 		OnRestart();
 	}
-	
+
 	return FALSE;
 }
 
@@ -198,33 +198,33 @@ BOOL WinMTRDialog::InitRegistry()
 	HKEY hKey, hKey_v;
 	DWORD tmp_dword, value_size;
 	LONG r;
-	
+
 	r = RegCreateKeyEx(HKEY_CURRENT_USER,"Software\\WinMTR",0,NULL,0,KEY_ALL_ACCESS,NULL,&hKey,NULL);
 	if(r != ERROR_SUCCESS)
 		return FALSE;
-		
+
 	RegSetValueEx(hKey,"Version", 0, REG_SZ, (const unsigned char*)WINMTR_VERSION, sizeof(WINMTR_VERSION)+1);
 	RegSetValueEx(hKey,"License", 0, REG_SZ, (const unsigned char*)WINMTR_LICENSE, sizeof(WINMTR_LICENSE)+1);
 	RegSetValueEx(hKey,"HomePage", 0, REG_SZ, (const unsigned char*)WINMTR_HOMEPAGE, sizeof(WINMTR_HOMEPAGE)+1);
-	
+
 	r = RegCreateKeyEx(hKey,"Config",0,NULL,0,KEY_ALL_ACCESS,NULL,&hKey_v,NULL);
 	if(r != ERROR_SUCCESS)
 		return FALSE;
-		
+
 	if(RegQueryValueEx(hKey_v, "PingSize", 0, NULL, (unsigned char*)&tmp_dword, &value_size) != ERROR_SUCCESS) {
 		tmp_dword = pingsize;
 		RegSetValueEx(hKey_v,"PingSize", 0, REG_DWORD, (const unsigned char*)&tmp_dword, sizeof(DWORD));
 	} else {
 		if(!hasPingsizeFromCmdLine) pingsize = (WORD)tmp_dword;
 	}
-	
+
 	if(RegQueryValueEx(hKey_v, "MaxLRU", 0, NULL, (unsigned char*)&tmp_dword, &value_size) != ERROR_SUCCESS) {
 		tmp_dword = maxLRU;
 		RegSetValueEx(hKey_v,"MaxLRU", 0, REG_DWORD, (const unsigned char*)&tmp_dword, sizeof(DWORD));
 	} else {
 		if(!hasMaxLRUFromCmdLine) maxLRU = tmp_dword;
 	}
-	
+
 	if(RegQueryValueEx(hKey_v, "UseDNS", 0, NULL, (unsigned char*)&tmp_dword, &value_size) != ERROR_SUCCESS) {
 		tmp_dword = useDNS ? 1 : 0;
 		RegSetValueEx(hKey_v,"UseDNS", 0, REG_DWORD, (const unsigned char*)&tmp_dword, sizeof(DWORD));
@@ -239,14 +239,14 @@ BOOL WinMTRDialog::InitRegistry()
 		if(useIPv6>2) useIPv6=1;
 	}
 	m_checkIPv6.SetCheck(useIPv6);
-	
+
 	if(RegQueryValueEx(hKey_v, "Interval", 0, NULL, (unsigned char*)&tmp_dword, &value_size) != ERROR_SUCCESS) {
 		tmp_dword = (DWORD)(interval * 1000);
 		RegSetValueEx(hKey_v,"Interval", 0, REG_DWORD, (const unsigned char*)&tmp_dword, sizeof(DWORD));
 	} else {
 		if(!hasIntervalFromCmdLine) interval = (float)tmp_dword / 1000.0;
 	}
-	
+
 	r = RegCreateKeyEx(hKey,"LRU",0,NULL,0,KEY_ALL_ACCESS,NULL,&hKey_v,NULL);
 	if(r != ERROR_SUCCESS)
 		return FALSE;
@@ -279,10 +279,10 @@ BOOL WinMTRDialog::InitRegistry()
 void WinMTRDialog::OnSizing(UINT fwSide, LPRECT pRect)
 {
 	CDialog::OnSizing(fwSide, pRect);
-	
+
 	int iWidth = (pRect->right)-(pRect->left);
 	int iHeight = (pRect->bottom)-(pRect->top);
-	
+
 	if(iWidth<638)
 		pRect->right = pRect->left+638;
 	if(iHeight<388)
@@ -307,12 +307,12 @@ void WinMTRDialog::OnSize(UINT nType, int cx, int cy)
 	m_listMTR.GetWindowRect(&lb);
 	ScreenToClient(&lb);
 	m_listMTR.SetWindowPos(NULL, lb.TopLeft().x, lb.TopLeft().y, rct.Width() - 17, rct.Height() - lb.top - 25, SWP_NOMOVE | SWP_NOZORDER);
-	
+
 	RepositionBars(AFX_IDW_CONTROLBAR_FIRST, AFX_IDW_CONTROLBAR_LAST,
 				   0, reposQuery, rct);
-				   
+
 	RepositionBars(AFX_IDW_CONTROLBAR_FIRST, AFX_IDW_CONTROLBAR_LAST, 0);
-	
+
 }
 
 
@@ -323,16 +323,16 @@ void WinMTRDialog::OnPaint()
 {
 	if(IsIconic()) {
 		CPaintDC dc(this);
-		
+
 		SendMessage(WM_ICONERASEBKGND, (WPARAM) dc.GetSafeHdc(), 0);
-		
+
 		int cxIcon = GetSystemMetrics(SM_CXICON);
 		int cyIcon = GetSystemMetrics(SM_CYICON);
 		CRect rect;
 		GetClientRect(&rect);
 		int x = (rect.Width() - cxIcon + 1) / 2;
 		int y = (rect.Height() - cyIcon + 1) / 2;
-		
+
 		dc.DrawIcon(x, y, m_hIcon);
 	} else {
 		CDialog::OnPaint();
@@ -356,12 +356,12 @@ void WinMTRDialog::OnDblclkList(NMHDR* /*pNMHDR*/, LRESULT* pResult)
 {
 	*pResult=0;
 	if(state==TRACING || state==IDLE || state==STOPPING) {
-	
+
 		POSITION pos = m_listMTR.GetFirstSelectedItemPosition();
 		if(pos!=NULL) {
 			int nItem = m_listMTR.GetNextSelectedItem(pos);
 			WinMTRProperties wmtrprop;
-			
+
 			union {sockaddr* addr; sockaddr_in* addr4; sockaddr_in6* addr6;};
 			addr=wmtrnet->GetAddr(nItem);
 			if(!(addr4->sin_family==AF_INET&&addr4->sin_addr.s_addr) && !(addr6->sin6_family==AF_INET6&&(addr6->sin6_addr.u.Word[0]|addr6->sin6_addr.u.Word[1]|addr6->sin6_addr.u.Word[2]|addr6->sin6_addr.u.Word[3]|addr6->sin6_addr.u.Word[4]|addr6->sin6_addr.u.Word[5]|addr6->sin6_addr.u.Word[6]|addr6->sin6_addr.u.Word[7]))) {
@@ -375,16 +375,16 @@ void WinMTRDialog::OnDblclkList(NMHDR* /*pNMHDR*/, LRESULT* pResult)
 				}
 				strcpy_s(wmtrprop.comment, "Host alive.");
 			}
-			
+
 			wmtrprop.ping_avrg = (float)wmtrnet->GetAvg(nItem);
 			wmtrprop.ping_last = (float)wmtrnet->GetLast(nItem);
 			wmtrprop.ping_best = (float)wmtrnet->GetBest(nItem);
 			wmtrprop.ping_worst = (float)wmtrnet->GetWorst(nItem);
-			
+
 			wmtrprop.pck_loss = wmtrnet->GetPercent(nItem);
 			wmtrprop.pck_recv = wmtrnet->GetReturned(nItem);
 			wmtrprop.pck_sent = wmtrnet->GetXmit(nItem);
-			
+
 			wmtrprop.DoModal();
 		}
 	}
@@ -445,7 +445,7 @@ void WinMTRDialog::OnRestart()
 		ClearHistory();
 		return;
 	}
-	
+
 	CString sHost;
 	if(state == IDLE) {
 		m_comboHost.GetWindowText(sHost);
@@ -456,7 +456,7 @@ void WinMTRDialog::OnRestart()
 			return ;
 		}
 		m_listMTR.DeleteAllItems();
-		
+
 		HKEY hKey; DWORD tmp_dword;
 		if(RegCreateKeyEx(HKEY_CURRENT_USER,"Software\\WinMTR\\Config",0,NULL,0,KEY_ALL_ACCESS,NULL,&hKey,NULL)==ERROR_SUCCESS) {
 			tmp_dword=m_checkIPv6.GetCheck();
@@ -491,15 +491,15 @@ void WinMTRDialog::OnOptions()
 {
 	WinMTROptions optDlg(interval,pingsize,maxLRU,useDNS);
 	if(IDOK == optDlg.DoModal()) {
-	
+
 		pingsize = (WORD)optDlg.GetPingSize();
 		interval = optDlg.GetInterval();
 		maxLRU = optDlg.GetMaxLRU();
 		useDNS = optDlg.GetUseDNS();
-		
+
 		HKEY hKey;
 		DWORD tmp_dword;
-		
+
 		if(RegCreateKeyEx(HKEY_CURRENT_USER,"Software\\WinMTR\\Config",0,NULL,0,KEY_ALL_ACCESS,NULL,&hKey,NULL)==ERROR_SUCCESS) {
 			tmp_dword = pingsize;
 			RegSetValueEx(hKey,"PingSize", 0, REG_DWORD, (const unsigned char*)&tmp_dword, sizeof(DWORD));
@@ -534,9 +534,9 @@ void WinMTRDialog::OnOptions()
 void WinMTRDialog::OnCTTC()
 {
 	char buf[255], t_buf[1000], f_buf[255*100];
-	
+
 	int nh = wmtrnet->GetMax();
-	
+
 	strcpy_s(f_buf,  "|------------------------------------------------------------------------------------------|\r\n");
 	sprintf_s(t_buf, "|                                      WinMTR statistics                                   |\r\n");
 	strcat_s(f_buf, t_buf);
@@ -544,38 +544,38 @@ void WinMTRDialog::OnCTTC()
 	strcat_s(f_buf, t_buf);
 	sprintf_s(t_buf, "|------------------------------------------------|------|------|------|------|------|------|\r\n");
 	strcat_s(f_buf, t_buf);
-	
+
 	for(int i=0; i <nh ; i++) {
 		wmtrnet->GetName(i, buf);
 		if(strcmp(buf,"")==0) strcpy_s(buf,"No response from host");
-		
+
 		sprintf(t_buf, "|%40s - %4d | %4d | %4d | %4d | %4d | %4d | %4d |\r\n" ,
 				buf, wmtrnet->GetPercent(i),
 				wmtrnet->GetXmit(i), wmtrnet->GetReturned(i), wmtrnet->GetBest(i),
 				wmtrnet->GetAvg(i), wmtrnet->GetWorst(i), wmtrnet->GetLast(i));
 		strcat_s(f_buf, t_buf);
 	}
-	
+
 	sprintf(t_buf, "|________________________________________________|______|______|______|______|______|______|\r\n");
 	strcat_s(f_buf, t_buf);
-	
+
 	CString cs_tmp((LPCSTR)IDS_STRING_SB_NAME);
 	strcat_s(f_buf, "   ");
 	strcat_s(f_buf, (LPCTSTR)cs_tmp);
-	
+
 	CString source(f_buf);
-	
+
 	HGLOBAL clipbuffer;
 	char* buffer;
-	
+
 	OpenClipboard();
 	EmptyClipboard();
-	
+
 	clipbuffer = GlobalAlloc(GMEM_DDESHARE, source.GetLength()+1);
 	buffer = (char*)GlobalLock(clipbuffer);
 	strcpy(buffer, LPCSTR(source));
 	GlobalUnlock(clipbuffer);
-	
+
 	SetClipboardData(CF_TEXT,clipbuffer);
 	CloseClipboard();
 }
@@ -586,44 +586,44 @@ void WinMTRDialog::OnCTTC()
 void WinMTRDialog::OnCHTC()
 {
 	char buf[255], t_buf[1000], f_buf[255*100];
-	
+
 	int nh = wmtrnet->GetMax();
-	
+
 	strcpy_s(f_buf, "<html><head><title>WinMTR Statistics</title><link href=\"https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css\" rel=\"stylesheet\" integrity=\"sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65\" crossorigin=\"anonymous\">\n"
-                  "    <style type=\"text/css\">h1{text-align: center;} table{max-width:80%; margin: 0 10% ;}</style></head>\r\n");
+				  "    <style type=\"text/css\">h1{text-align: center;} table{max-width:80%; margin: 0 10% ;}</style></head>\r\n");
 	sprintf_s(t_buf, "<h1>WinMTR statistics</h1>\r\n");
 	strcat_s(f_buf, t_buf);
-	
+
 	sprintf_s(t_buf, "<table class=\"table\"><thead class=\"thead-dark\"><td>Host</td> <td>%%</td> <td>Sent</td> <td>Recv</td> <td>Best</td> <td>Avrg</td> <td>Wrst</td> <td>Last</td></thead><tbody>\r\n");
 	strcat_s(f_buf, t_buf);
-	
+
 	for(int i=0; i <nh ; i++) {
 		wmtrnet->GetName(i, buf);
 		if(strcmp(buf,"")==0) strcpy_s(buf,"No response from host");
-		
+
 		sprintf(t_buf, "<tr><td>%s</td> <td>%4d</td> <td>%4d</td> <td>%4d</td> <td>%4d</td> <td>%4d</td> <td>%4d</td> <td>%4d</td></tr>\r\n" ,
 				buf, wmtrnet->GetPercent(i),
 				wmtrnet->GetXmit(i), wmtrnet->GetReturned(i), wmtrnet->GetBest(i),
 				wmtrnet->GetAvg(i), wmtrnet->GetWorst(i), wmtrnet->GetLast(i));
 		strcat_s(f_buf, t_buf);
 	}
-	
+
 	sprintf(t_buf, "</tbody></table></body></html>\r\n");
 	strcat_s(f_buf, t_buf);
-	
+
 	CString source(f_buf);
-	
+
 	HGLOBAL clipbuffer;
 	char* buffer;
-	
+
 	OpenClipboard();
 	EmptyClipboard();
-	
+
 	clipbuffer = GlobalAlloc(GMEM_DDESHARE, source.GetLength()+1);
 	buffer = (char*)GlobalLock(clipbuffer);
 	strcpy(buffer, LPCSTR(source));
 	GlobalUnlock(clipbuffer);
-	
+
 	SetClipboardData(CF_TEXT,clipbuffer);
 	CloseClipboard();
 }
@@ -635,7 +635,7 @@ void WinMTRDialog::OnCHTC()
 void WinMTRDialog::OnEXPT()
 {
 	TCHAR BASED_CODE szFilter[] = _T("Text Files (*.txt)|*.txt|All Files (*.*)|*.*||");
-	
+
 	CFileDialog dlg(FALSE,
 					_T("TXT"),
 					NULL,
@@ -643,11 +643,11 @@ void WinMTRDialog::OnEXPT()
 					szFilter,
 					this);
 	if(dlg.DoModal() == IDOK) {
-	
+
 		char buf[255], t_buf[1000], f_buf[255*100];
-		
+
 		int nh = wmtrnet->GetMax();
-		
+
 		strcpy_s(f_buf,  "|------------------------------------------------------------------------------------------|\r\n");
 		sprintf_s(t_buf, "|                                      WinMTR statistics                                   |\r\n");
 		strcat_s(f_buf, t_buf);
@@ -655,26 +655,26 @@ void WinMTRDialog::OnEXPT()
 		strcat_s(f_buf, t_buf);
 		sprintf_s(t_buf, "|------------------------------------------------|------|------|------|------|------|------|\r\n");
 		strcat_s(f_buf, t_buf);
-		
+
 		for(int i=0; i <nh ; i++) {
 			wmtrnet->GetName(i, buf);
 			if(strcmp(buf,"")==0) strcpy_s(buf,"No response from host");
-			
+
 			sprintf(t_buf, "|%40s - %4d | %4d | %4d | %4d | %4d | %4d | %4d |\r\n" ,
 					buf, wmtrnet->GetPercent(i),
 					wmtrnet->GetXmit(i), wmtrnet->GetReturned(i), wmtrnet->GetBest(i),
 					wmtrnet->GetAvg(i), wmtrnet->GetWorst(i), wmtrnet->GetLast(i));
 			strcat_s(f_buf, t_buf);
 		}
-		
+
 		sprintf_s(t_buf, "|________________________________________________|______|______|______|______|______|______|\r\n");
 		strcat_s(f_buf, t_buf);
-		
-		
+
+
 		CString cs_tmp((LPCSTR)IDS_STRING_SB_NAME);
 		strcat_s(f_buf, "   ");
 		strcat_s(f_buf, (LPCTSTR)cs_tmp);
-		
+
 		FILE* fp = fopen(dlg.GetPathName(), "wt");
 		if(fp != NULL) {
 			fprintf(fp, "%s", f_buf);
@@ -690,42 +690,42 @@ void WinMTRDialog::OnEXPT()
 void WinMTRDialog::OnEXPH()
 {
 	TCHAR BASED_CODE szFilter[] = _T("HTML Files (*.htm, *.html)|*.htm;*.html|All Files (*.*)|*.*||");
-	
+
 	CFileDialog dlg(FALSE,
 					_T("HTML"),
 					NULL,
 					OFN_HIDEREADONLY | OFN_EXPLORER,
 					szFilter,
 					this);
-					
+
 	if(dlg.DoModal() == IDOK) {
-	
+
 		char buf[255], t_buf[1000], f_buf[255*100];
-		
+
 		int nh = wmtrnet->GetMax();
 
-        strcpy_s(f_buf, "<html><head><title>WinMTR Statistics</title><link href=\"https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css\" rel=\"stylesheet\" integrity=\"sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65\" crossorigin=\"anonymous\">\n"
-                        "    <style type=\"text/css\">h1{text-align: center;} table{max-width:80%; margin: 0 10% ;}</style></head>\r\n");
-        sprintf_s(t_buf, "<h1>WinMTR statistics</h1>\r\n");
-        strcat_s(f_buf, t_buf);
+		strcpy_s(f_buf, "<html><head><title>WinMTR Statistics</title><link href=\"https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css\" rel=\"stylesheet\" integrity=\"sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65\" crossorigin=\"anonymous\">\n"
+						"    <style type=\"text/css\">h1{text-align: center;} table{max-width:80%; margin: 0 10% ;}</style></head>\r\n");
+		sprintf_s(t_buf, "<h1>WinMTR statistics</h1>\r\n");
+		strcat_s(f_buf, t_buf);
 
-        sprintf_s(t_buf, "<table class=\"table\"><thead class=\"thead-dark\"><td>Host</td> <td>%%</td> <td>Sent</td> <td>Recv</td> <td>Best</td> <td>Avrg</td> <td>Wrst</td> <td>Last</td></thead><tbody>\r\n");
-        strcat_s(f_buf, t_buf);
-		
+		sprintf_s(t_buf, "<table class=\"table\"><thead class=\"thead-dark\"><td>Host</td> <td>%%</td> <td>Sent</td> <td>Recv</td> <td>Best</td> <td>Avrg</td> <td>Wrst</td> <td>Last</td></thead><tbody>\r\n");
+		strcat_s(f_buf, t_buf);
+
 		for(int i=0; i <nh ; i++) {
 			wmtrnet->GetName(i, buf);
 			if(strcmp(buf,"")==0) strcpy_s(buf,"No response from host");
-			
+
 			sprintf(t_buf, "<tr><td>%s</td> <td>%4d</td> <td>%4d</td> <td>%4d</td> <td>%4d</td> <td>%4d</td> <td>%4d</td> <td>%4d</td></tr>\r\n" ,
 					buf, wmtrnet->GetPercent(i),
 					wmtrnet->GetXmit(i), wmtrnet->GetReturned(i), wmtrnet->GetBest(i),
 					wmtrnet->GetAvg(i), wmtrnet->GetWorst(i), wmtrnet->GetLast(i));
 			strcat_s(f_buf, t_buf);
 		}
-		
+
 		sprintf(t_buf, "</tbody></table></body></html>\r\n");
 		strcat_s(f_buf, t_buf);
-		
+
 		FILE* fp = fopen(dlg.GetPathName(), "wt");
 		if(fp != NULL) {
 			fprintf(fp, "%s", f_buf);
@@ -751,42 +751,42 @@ int WinMTRDialog::DisplayRedraw()
 	char buf[255], nr_crt[255];
 	int nh = wmtrnet->GetMax();
 	while(m_listMTR.GetItemCount() > nh) m_listMTR.DeleteItem(m_listMTR.GetItemCount() - 1);
-	
+
 	for(int i=0; i <nh ; ++i) {
-	
+
 		wmtrnet->GetName(i, buf);
 		if(!*buf) strcpy_s(buf,"No response from host");
-		
+
 		sprintf(nr_crt, "%d", i+1);
 		if(m_listMTR.GetItemCount() <= i)
 			m_listMTR.InsertItem(i, buf);
 		else
 			m_listMTR.SetItem(i, 0, LVIF_TEXT, buf, 0, 0, 0, 0);
-			
+
 		m_listMTR.SetItem(i, 1, LVIF_TEXT, nr_crt, 0, 0, 0, 0);
-		
+
 		sprintf(buf, "%d", wmtrnet->GetPercent(i));
 		m_listMTR.SetItem(i, 2, LVIF_TEXT, buf, 0, 0, 0, 0);
-		
+
 		sprintf(buf, "%d", wmtrnet->GetXmit(i));
 		m_listMTR.SetItem(i, 3, LVIF_TEXT, buf, 0, 0, 0, 0);
-		
+
 		sprintf(buf, "%d", wmtrnet->GetReturned(i));
 		m_listMTR.SetItem(i, 4, LVIF_TEXT, buf, 0, 0, 0, 0);
-		
+
 		sprintf(buf, "%d", wmtrnet->GetBest(i));
 		m_listMTR.SetItem(i, 5, LVIF_TEXT, buf, 0, 0, 0, 0);
-		
+
 		sprintf(buf, "%d", wmtrnet->GetAvg(i));
 		m_listMTR.SetItem(i, 6, LVIF_TEXT, buf, 0, 0, 0, 0);
-		
+
 		sprintf(buf, "%d", wmtrnet->GetWorst(i));
 		m_listMTR.SetItem(i, 7, LVIF_TEXT, buf, 0, 0, 0, 0);
-		
+
 		sprintf(buf, "%d", wmtrnet->GetLast(i));
 		m_listMTR.SetItem(i, 8, LVIF_TEXT, buf, 0, 0, 0, 0);
 	}
-	
+
 	return 0;
 }
 
@@ -799,10 +799,10 @@ int WinMTRDialog::InitMTRNet()
 	char hostname[255];
 	char buf[255];
 	m_comboHost.GetWindowText(hostname, 255);
-	
+
 	sprintf(buf, "Resolving host %s...", hostname);
 	statusBar.SetPaneText(0,buf);
-	
+
 	addrinfo nfofilter= {0};
 	addrinfo* anfo;
 	if(wmtrnet->hasIPv6) {
@@ -833,10 +833,10 @@ void PingThread(void* p)
 {
 	WinMTRDialog* wmtrdlg = (WinMTRDialog*)p;
 	WaitForSingleObject(wmtrdlg->traceThreadMutex, INFINITE);
-	
+
 	char hostname[255];
 	wmtrdlg->m_comboHost.GetWindowText(hostname, 255);
-	
+
 	addrinfo nfofilter= {0};
 	addrinfo* anfo;
 	if(wmtrdlg->wmtrnet->hasIPv6) {
@@ -872,11 +872,11 @@ void WinMTRDialog::ClearHistory()
 	HKEY hKey;
 	DWORD tmp_dword;
 	char key_name[20];
-	
+
 	if(RegCreateKeyEx(HKEY_CURRENT_USER,"Software\\WinMTR\\LRU",0,NULL,0,KEY_ALL_ACCESS,NULL,&hKey,NULL)!=ERROR_SUCCESS) {
 		return;
 	}
-	
+
 	for(int i = 0; i<=nrLRU; i++) {
 		sprintf(key_name, "Host%d", i);
 		RegDeleteValue(hKey,key_name);
@@ -885,7 +885,7 @@ void WinMTRDialog::ClearHistory()
 	tmp_dword = nrLRU;
 	RegSetValueEx(hKey,"NrLRU", 0, REG_DWORD, (const unsigned char*)&tmp_dword, sizeof(DWORD));
 	RegCloseKey(hKey);
-	
+
 	m_comboHost.Clear();
 	m_comboHost.ResetContent();
 	m_comboHost.AddString(CString((LPCSTR)IDS_STRING_CLEAR_HISTORY));
@@ -970,7 +970,7 @@ void WinMTRDialog::Transit(STATES new_state)
 	default:
 		TRACE_MSG("Received state " << state);
 	}
-	
+
 	// modify controls according to new state
 	switch(transition) {
 	case IDLE_TO_IDLE:
@@ -1030,7 +1030,7 @@ void WinMTRDialog::OnTimer(UINT_PTR nIDEvent)
 		ReleaseMutex(traceThreadMutex);
 		OnOK();
 	}
-	
+
 	if(WaitForSingleObject(traceThreadMutex, 0) == WAIT_OBJECT_0) {
 		ReleaseMutex(traceThreadMutex);
 		Transit(IDLE);
@@ -1038,7 +1038,7 @@ void WinMTRDialog::OnTimer(UINT_PTR nIDEvent)
 		if(state==TRACING) Transit(TRACING);
 		else if(state==STOPPING) Transit(STOPPING);
 	}
-	
+
 	CDialog::OnTimer(nIDEvent);
 }
 
@@ -1063,5 +1063,5 @@ void WinMTRDialog::OnFileExit()
 
 void WinMTRDialog::OnAbout()
 {
-	ShellExecute(NULL, "open", "https://sctools.cyou/redirect.php?soft=winmtr", 0, 0, SW_SHOWNORMAL);
+	ShellExecute(NULL, "open", "https://winmtr.net/", 0, 0, SW_SHOWNORMAL);
 }
